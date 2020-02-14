@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>detail</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="css/detail.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/myHeader.js"></script>
+    <script src="js/sideBtn.js"></script>
+    <script src="js/searchBox.js"></script>
+    <script src="js/myFooter.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-header></my-header>
+        <div class="detail">
+            <side-btn></side-btn>
+            <section class="sec1">
+                <div class="container-1440">
+                    <!-- top banner -->
+                    <div class="top-banner">
+                        <div class="img">
+                            <img class="blur" src="img/detail/top-banner.jpg" />
+                        </div>
+                        <div class="title">
+                            <span class="main">找設計師</span>
+                            <span class="sub-title">慕澤設計</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="container-1280">
+                    <div class="box box-1">
+                        <div class="main-top-img">
+                            <div class="img"><img src="img/detail/designer348_00.jpg"></div>
+                        </div>
+                        <div class="discript">
+                            <div class="name">鄭錦鵬、蔡宗諺</div>
+                            <div class="content">
+                                本著「專業」、「用心」、「誠心」心中懷抱著對設計的執著與熱情我們用設計表達空間的深度與質感精準的傳達設計內在的精神
+                                設計中充滿著對生活的幽默強調自然、清晰的設計原則且偏執的處理著每個微小細節對於品質的要求，我們深具信心
+                                我們是慕澤設計，我們設計品味，請您品味設計
+                            </div>
+                        </div>
+                        <div class="award">
+                            <div class="title">得獎紀錄</div>
+                            <ul class="list">
+                                <li class="item">2019  義大利A’ Design AWARDS - 公共空間 銀獎</li>
+                                <li class="item">2019  義大利A’ Design AWARDS - 住宅空間 銀獎</li>
+                                <li class="item">2019  美國IDA AWARDS - 公共空間 最佳設計獎</li>
+                                <li class="item">2016  AWARDS - 住宅空間 金獎</li>
+                                <li class="item">2015  APDC亞太設計大獎 居住空間-金獎</li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <div class="box box-2">
+                        <!-- tabs 頁籤 -->
+                        <div class="row no-gutters mb-3 justify-content-center">
+                            <ul class="dw-tabs-dark">
+                                <li :class="['item',{ active: this.selectedTab === '0'}]"><a @click.stop="tabClick('0')">公司資訊</a></li>
+                                <li :class="['item',{ active: this.selectedTab === '1'}]"><a @click.stop="tabClick('1')">精選案例</a></li>
+                                <li :class="['item',{ active: this.selectedTab === '2'}]"><a @click.stop="tabClick('2')">影音專區</a></li>
+                                <li :class="['item',{ active: this.selectedTab === '3'}]"><a @click.stop="tabClick('3')">立即聯繫</a></li>
+                            </ul>
+                        </div>
+                        <!--公司資訊-->
+                        <div v-show="this.selectedTab == 0" class="box-2-content comp">
+                            <!-- main-img -->
+                            <div class="main-img">
+                                <img src="img/detail/box-2-img.png" />
+                            </div>
+                            <!-- discript -->
+                            <div class="discript">
+                                <div class="title">慕澤設計</div>
+                                <div class="content">
+                                    本著「專業」、「用心」、「誠心」心中懷抱著對設計的執著與熱情我們用設計表達空間的深度與質感精準的傳達設計內在的精神
+                                    設計中充滿著對生活的幽默強調自然、清晰的設計原則且偏執的處理著每個微小細節對於品質的要求，我們深具信心
+                                    我們是慕澤設計，我們設計品味，請您品味設計
+                                </div>
+                            </div>
+                            <!-- infos -->
+                            <div class="infos">
+                                <ul class="list">
+                                    <li class="item"><i class="icon icon-location"></i>台北市信義區信義路五段150巷401弄56號</li>
+                                    <li class="item"><i class="icon icon-phone"></i>02-2528-6603</li>
+                                    <li class="item"><i class="icon icon-fax"></i>02-2528-6506</li>
+                                    <li class="item"><i class="icon icon-mail"></i>muzemail01@gmail.com</li>
+                                    <li class="item"><i class="icon icon-web"></i>http://www.muzedesign.com.tw/</li>
+                                </ul>
+                            </div>
+                        </div>
+    
+                        <!--精選案例-->
+                        <div v-show="this.selectedTab == 1" class="box-2-content">
+                            <div class="excemple-slick">
+                                <div class="excemple_slick slick">
+                                    <div v-for="(item,index) in excemple_SlickData.items" :key="index" class="item">
+                                        <a href="#">
+                                            <div class="img">
+                                                <img :src=" item.img " />
+                                            </div>
+                                            <div class="name d-flex">
+                                                <i class="icon-triangle"></i>
+                                                {{ item.name }}
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!--影音專區-->
+                        <div v-show="this.selectedTab == 2" class="box-2-content">
+                            <div class="movie-wrap row pb-5">
+                                <div class="item col-lg-6">
+                                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/YBNcQrl01EY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="item col-lg-6">
+                                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/YBNcQrl01EY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="item col-lg-6">
+                                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/YBNcQrl01EY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div class="item col-lg-6">
+                                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/YBNcQrl01EY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!--立即聯繫-->
+                        <div v-show="this.selectedTab == 3" class="box-2-content contact">
+                            <div class="info">
+                                <span>想立即聯絡該設計師／設計公司嗎？</span>
+                                <span>在這裡留下您的訊息與相關資料，設計王會將您的訊息盡快交給您有興趣的設計師／設計公司！</span>
+                            </div>
+                            <div class="input row no-gutters">
+                                <input type="text" class="col-lg-4 mb-4" placeholder="姓名">
+                            </div>
+                            <div class="input row no-gutters">
+                                <input type="text" class="col-lg-4 mb-5" placeholder="E-mail">
+                            </div>
+                            <div class="input column no-gutters">
+                                <label class="col-lg-12">寫下您的訊息</label>
+                                <textarea class="col-lg-8 mb-5" cols="60" rows="5"></textarea>
+                                <a href="" class="dw-btn-submit col-lg-3 mb-5">
+                                    <span>確認送出</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="box box-3">
+                        <!--相關文章-->
+                        <div class="item-list">
+                            <div class="main-title">相關文章</div>
+                            <ul class="wrap">
+                                <li class="item" v-for="(item,index) in 4" :key="index">
+                                    <a href="">
+                                        <div class="img">
+                                            <img src="img/detail/Group 1049.jpg" />
+                                        </div>
+                                        <div class="date">
+                                            <i class="icon-calender"></i>2019.11.01
+                                        </div>
+                                        <div class="title text-ellipsis">Harmony with CityHarmony with CityHarmony with City</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--名品推薦-->
+                        <div class="item-list-2">
+                            <div class="main-title">名品推薦</div>
+                            <ul class="wrap">
+                                <li class="item" v-for="(item,index) in 4" :key="index">
+                                    <a href="">
+                                        <div class="img">
+                                            <img src="img/detail/Group 706.jpg" />
+                                        </div>
+                                        <div class="info-wrap">
+                                            <div class="title">DROP 迷霧銀</div>
+                                            <div class="info text-ellipsis-3">市場唯一，觸控七段式自動控水裝置，操作簡單而直覺，隨心所欲控制咖啡飲品的濃淡隨心所欲控制咖啡飲品的濃淡隨心所欲控制咖啡飲品的濃淡</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- 想找  專屬設計師 PC -->
+                <div class="container-1440 bot-btns d-none d-lg-block">
+                    <div class="row no-gutters justify-content-center d-none d-lg-flex pc-mode">
+                        <!-- 想找  專屬設計師 -->
+                        <a href class="col-md dw-btn-lg-1">
+                            <span class="icon icon-btn-icon-1"></span>
+                            <span class="txt">想找 專屬設計師</span>
+                        </a>
+            
+                        <!-- 想找  專屬設計師 -->
+                        <a href class="col-md dw-btn-lg-2">
+                            <span class="icon icon-btn-icon-2"></span>
+                            <span class="txt">想找 家俱/用品/好東西？</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 想找  專屬設計師 MB -->
+                <div class="bot-btns-m dw-bottom-btn d-lg-none d-flex">
+                    <a href class="dw-btn-side-1 col">
+                        <span class="txt">
+                            <i class="icon icon-btn-icon-1"></i> 找設計師
+                        </span>
+                    </a>
+    
+                    <a href class="dw-btn-side-2 col">
+                        <span class="txt">
+                            <i class="icon icon-btn-icon-2"></i> 嚴選名品
+                        </span>
+                    </a>
+                    <a  class="dw-btn-side-3" @click="openSearch">
+                        <i class="icon icon-search"></i>
+                    </a>            
+                </div>
+            </section>
+        </div>
+        <!--search box-->
+        <search-box ref="searchBox"></search-box>
+        <my-footer></my-footer>
+        
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    
+    <script>
+        //vue
+        var app = new Vue({
+            el:"#app",
+            data:{
+                selectedTab:'0',
+                // ============== Interior fake data
+                excemple_SlickData: {
+                    items: [
+                        {
+                            type: "室內設計公司",
+                            img: "img/interior-1.jpg",
+                            name: "一研設計制研所",
+                            link: ""
+                        },
+                        {
+                            type: "室內設計公司",
+                            img: "img/interior-2.jpg",
+                            name: "design-milk",
+                            link: ""
+                        },
+                        {
+                            type: "室內設計公司",
+                            img: "img/interior-3.jpg",
+                            name: "敘研設計 DSEN",
+                            link: ""
+                        },
+                        {
+                            type: "室內設計公司",
+                            img: "img/interior-4.jpg",
+                            name: "新澄設計",
+                            link: ""
+                        },
+                        {
+                            type: "室內設計公司",
+                            img: "img/interior-1.jpg",
+                            name: "一研設計制研所",
+                            link: ""
+                        },
+                        {
+                            type: "室內設計公司",
+                            img: "img/interior-2.jpg",
+                            name: "design-milk",
+                            link: ""
+                        },
+                        {
+                            type: "室內設計公司",
+                            img: "img/interior-3.jpg",
+                            name: "敘研設計 DSEN",
+                            link: ""
+                        },
+                        {
+                            type: "室內設計公司",
+                            img: "img/interior-4.jpg",
+                            name: "新澄設計",
+                            link: ""
+                        }
+                    ],
+                    slickOptions: {
+                        slidesToShow: 4,
+                        arrows: false,
+                        autoplay: true,
+                        autoplaySpeed: 3000,
+                        responsive: [
+                            {
+                                breakpoint: 992,
+                                settings: {
+                                    slidesToShow: 1,
+                                    arrows: false
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            methods: {
+                tabClick(val){
+                    this.selectedTab = val;
+                },
+                go_next(target) {
+                    let ref;
+                    if(target === "excemple") ref = $('.excemple_slick');
+                    ref.next();
+                },
+                go_prev(target) {
+                    let ref;
+                    if(target === "excemple") ref = $('.excemple_slick');
+                    ref.prev();
+                },
+                openSearch(){
+                    var searchbox = this.$refs.searchBox;
+                    searchbox.openSearch();
+                }
+            },
+        });
+    </script>
+
+    <script>
+        $(function(){
+            //excemple_slick
+            $('.slick').slick({
+                slidesToShow: 4,
+                arrows: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 1.1,
+                            arrows: false
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,663 @@
+/*=================================*/
+/*==           buttons           ==*/
+/*=================================*/
+
+.dw-btn-lg-default {
+    display: flex;
+    position: relative;
+    font-family: 'Noto Sans TC';
+    font-size: 30px;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.btn-icon-default {
+    background-position: center;
+    position: relative;
+    width: 47px;
+    height: 52px;
+    @media screen and (max-width: 1280px) {
+        width: calc(47px*.9);
+        height: calc(52px*.9);
+    }
+    @media screen and (max-width: 1154px) {
+        width: calc(47px*.8);
+        height: calc(52px*.8);
+    }
+    @media screen and (max-width: 992px) {
+        width: calc(47px*.7);
+        height: calc(52px*.7);
+    }
+}
+
+.txt-default{
+    font-size: 2vw;
+    /*
+    @media screen and (max-width: 1280px) {
+        font-size: calc(30px*.9);
+    }
+    @media screen and (max-width: 1154px) {
+        font-size: calc(30px*.8);
+    }
+    @media screen and (max-width: 992px) {
+        font-size: calc(30px*.7);
+    }
+    */
+}
+
+.arrow-default {
+    content: '';
+    width: 48px;
+    height: 8px;
+    background-position: center;
+    background-size: 100%;
+    background: url(../img/btn/button-arrow.svg) no-repeat;
+}
+
+.before-default {
+    content: '';
+    display: block;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    animation: btnHover .5s forwards;
+}
+
+
+// 按鈕 ( 查看全部 ) 
+.dw-btn {
+    display: flex;
+    position: relative;
+    font-family: 'Noto Sans TC';
+    font-size: 16px;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    background-color: $color_7;
+    color: #fff;
+
+    &.w540x80{
+        width: 540px;
+        height: 80px;
+    }
+
+    &.w300x80{
+        width: 300px;
+        height: 80px;
+    }
+
+    .txt {
+        position: relative;
+        z-index: 1;
+    }
+
+    &:after {
+        @extend .arrow-default;
+        position: absolute;
+        right: 31px;
+    }
+
+    &:hover {
+        color: $color_7;
+
+        .txt {
+            position: relative;
+            z-index: 1;
+        }
+
+        &:before {
+            height: 75px;
+            @extend .before-default;
+        }
+
+        &:after {
+            background: url(../img/btn/button-arrow-hover.svg) no-repeat;
+            opacity: 0;
+            animation: fadeIn .5s forwards .2s;
+        }
+    }
+}
+
+// 按鈕 ( 確認送出 ) 
+.dw-btn-submit {
+    display: flex;
+    position: relative;
+    font-family: 'Noto Sans TC';
+    font-size: 16px;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    background-color: #555;
+    color: #fff;
+    height: 80px;
+    .txt {
+        position: relative;
+        z-index: 1;
+    }
+
+    &:after {
+        @extend .arrow-default;
+        position: absolute;
+        right: 31px;
+    }
+
+    &.active,
+    &:hover {
+        color: #555;
+
+        .txt {
+            position: relative;
+            z-index: 1;
+        }
+
+        &:before {
+            height: 75px;
+            @extend .before-default;
+        }
+
+        &:after {
+            background: url(../img/btn/button-arrow-b.svg) no-repeat;
+            opacity: 0;
+            animation: fadeIn .5s forwards .2s;
+        }
+    }
+}
+
+// 按鈕 ( 想找 專屬設計師 lg )
+
+.dw-btn-lg-1 {
+    background: url(../img/btn/btnbg-1@3x.png) no-repeat;
+    background-size: cover;
+    height: 180px;
+    width: 720px;
+    margin-right: 0.5px;
+    @extend .dw-btn-lg-default;
+    .icon {
+        background: url(../img/btn/icon-1.svg) no-repeat;
+        background-size: 100%;
+        @extend .btn-icon-default;
+    }
+    .txt {
+        position: relative;
+        margin:0 1em;
+        z-index: 1;
+        @extend .txt-default;
+    }
+    &:after {
+        @extend .arrow-default;
+        position: absolute;
+        right: 31px;
+    }
+    &:hover {
+        color: $color_7;
+        .icon {
+            background: url(../img/btn/icon-1-hover.svg) no-repeat;
+            background-size: 100%;
+        }
+        .txt {
+            position: relative;
+            z-index: 1;
+        }
+        &:before {
+            width: 0%;
+            height: 171px;
+            @extend .before-default;
+        }
+        &:after {
+            background: url(../img/btn/button-arrow-hover.svg) no-repeat;
+            opacity: 0;
+            animation: fadeIn .5s forwards .2s;
+        }
+    }
+}
+
+// 按鈕 ( 想找傢俱好東西 lg )
+
+.dw-btn-lg-2 {
+    background: url(../img/btn/btnbg-2@3x.png) no-repeat;
+    background-size:cover;
+    height: 180px;
+    width: 720px;
+    margin-left: 0.5px;
+    @extend .dw-btn-lg-default;
+    .icon {
+        background: url(../img/btn/icon-2.svg) no-repeat;
+        background-size: 100%;
+        @extend .btn-icon-default;
+    }
+    .txt {
+        position: relative;
+        margin:0 1em;
+        z-index: 1;
+        @extend .txt-default;
+    }
+    &:after {
+        @extend .arrow-default;
+        position: absolute;
+        right: 31px;
+    }
+    &:hover {
+        color: $color_7;
+        .icon {
+            background: url(../img/btn/icon-2-hover.svg) no-repeat;
+            background-size: 100%;
+        }
+        .txt {
+            position: relative;
+            z-index: 1;
+        }
+        &:before {
+            width: 0%;
+            height: 171px;
+            @extend .before-default;
+        }
+        &:after {
+            background: url(../img/btn/button-arrow-hover.svg) no-repeat;
+            opacity: 0;
+            animation: fadeIn .5s forwards .2s;
+        }
+    }
+}
+
+// 按鈕 ( 想找專屬設計師 sm)
+
+.dw-btn-md-1{
+    @extend .dw-btn-lg-1;
+    width: 640px;
+    height: 130px;
+    &:before {
+        height: 121px!important;
+    }
+}
+
+// 按鈕 ( 想找傢俱好東西 sm )
+
+.dw-btn-md-2{
+    @extend .dw-btn-lg-2;
+    width: 640px;
+    height: 130px;
+    &:before {
+        height: 121px!important;
+    }
+}
+
+.dw-side-btn {
+    width: 80px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    .dw-btn-side-1 {
+        width: 100%;
+        height: 160px;
+        background: $color_6;
+        color: #fff;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        margin-bottom: 1px;
+        -webkit-writing-mode: vertical-lr;
+        writing-mode: vertical-lr;
+        letter-spacing: 2px;
+        font-size: 16px;
+        position: relative;
+        overflow: hidden;
+        .txt {
+            position: relative;
+            padding-top: 40px;
+            justify-content: center;
+            .icon {
+                position: absolute;
+                background: url(../img/btn/icon-1.svg) no-repeat;
+                background-size: 100%;
+                @extend .btn-icon-default;
+                width: 100%;
+                height: 30px;
+                display: flex;
+                top: 0;
+            }
+        }
+        &:hover {
+            color: $color_7;
+            .icon {
+                background: url(../img/btn/icon-1-hover.svg) no-repeat;
+                background-size: 100%;
+            }
+            .txt {
+                position: relative;
+                z-index: 1;
+            }
+            &:before {
+                width: calc(100% - 5px);
+                height: 171px;
+                background: #fff;
+                content: "";
+                display: block;
+                position: absolute;
+                right: 0;
+            }
+        }
+    }
+    .dw-btn-side-2 {
+        width: 100%;
+        height: 160px;
+        background: $color_6;
+        color: #fff;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        margin-bottom: 1px;
+        -webkit-writing-mode: vertical-lr;
+        writing-mode: vertical-lr;
+        letter-spacing: 2px;
+        font-size: 16px;
+        position: relative;
+        overflow: hidden;
+        .txt {
+            position: relative;
+            padding-top: 40px;
+            justify-content: center;
+            .icon {
+                position: absolute;
+                background: url(../img/btn/icon-2.svg) no-repeat;
+                background-size: 100%;
+                @extend .btn-icon-default;
+                width: 100%;
+                height: 30px;
+                display: flex;
+                top: 0;
+                left: 0;
+                right: 0;
+            }
+        }
+        &:hover {
+            color: $color_7;
+            .icon {
+                background: url(../img/btn/icon-1-hover.svg) no-repeat;
+                background-size: 100%;
+            }
+            .txt {
+                position: relative;
+                z-index: 1;
+            }
+            &:before {
+                width: calc(100% - 5px);
+                height: 171px;
+                background: #fff;
+                content: "";
+                display: block;
+                position: absolute;
+                right: 0;
+            }
+        }
+    }
+}
+
+.dw-bottom-btn {
+    max-width: 900px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+
+    .dw-btn-side-1 {
+        height: 80px;
+        background: $color_6;
+        color: #fff;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        margin-right: 1px;
+        letter-spacing: 2px;
+        font-size: 16px;
+        position: relative;
+        overflow: hidden;
+        .txt {
+            position: relative;
+            padding-left: 40px;
+            justify-content: center;
+            .icon {
+                position: absolute;
+                background: url(../img/btn/icon-1.svg) no-repeat;
+                background-size: 100%;
+                @extend .btn-icon-default;
+                width: 25px;
+                height: 25px;
+                display: flex;
+                top: 0;
+                left: 0;
+            }
+        }
+        &:hover {
+            color: $color_7;
+            .txt {
+                position: relative;
+                z-index: 1;
+                .icon {
+                    background: url(../img/btn/icon-1-hover.svg) no-repeat;
+                    background-size: 100%;
+                }
+            }
+            &:before {
+                height: calc(100% - 5px);
+                width: 100%;
+                background: #fff;
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+            }
+        }
+    }
+
+    .dw-btn-side-2 {
+        height: 80px;
+        background: $color_6;
+        color: #fff;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        letter-spacing: 2px;
+        font-size: 16px;
+        position: relative;
+        overflow: hidden;
+        .txt {
+            position: relative;
+            padding-left: 40px;
+            justify-content: center;
+            .icon {
+                position: absolute;
+                background: url(../img/btn/icon-2.svg) no-repeat;
+                background-size: 100%;
+                @extend .btn-icon-default;
+                width: 25px;
+                height: 25px;
+                display: flex;
+                top: 0;
+                left: 0;
+            }
+        }
+        &:hover {
+            color: $color_7;
+            .txt {
+                position: relative;
+                z-index: 1;
+                .icon {
+                    background: url(../img/btn/icon-2-hover.svg) no-repeat!important;
+                    background-size: 100%;
+                }
+            }
+            &:before {
+                height: calc(100% - 5px);
+                width: 100%;
+                background: #fff;
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+            }
+        }
+    }
+    .dw-btn-side-3 {
+        width: 100px;
+        height: 80px;
+        background: $color_7;
+        color: #fff;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        letter-spacing: 2px;
+        font-size: 16px;
+        position: relative;
+        overflow: hidden;
+        &:hover {
+            color: $color_7;
+            .icon {
+                position: absolute;
+                background: url(../img/icn/icon-search-h.svg) no-repeat;
+            }
+            .txt {
+                position: relative;
+                z-index: 1;
+            }
+            &:before {
+                height: calc(100% - 5px);
+                width: 100%;
+                background:#ffffff;
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+            }
+        }
+    }
+}
+
+// 按鈕動畫效果
+
+@keyframes btnHover {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+// Tabs 頁籤
+
+.dw-tabs{
+    display: flex;
+    height: 52px;
+    border-bottom: 1px solid $color_5;
+    width: 100%;
+    max-width: 1280px;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 992px) {
+        overflow-x: scroll;
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+    .item{
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        font-size: 16px;
+        color: $color_5;
+        @media (max-width: 992px) {
+            min-width: 140px;
+        }
+        &>a{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        cursor: pointer;
+        &.active:hover,
+        &.active{
+            background: $color_6;
+            color: #fff;
+        }
+        &:hover{
+            background: $color_10;
+        }
+    }
+}
+
+.dw-tabs-dark{
+    display: flex;
+    height: 52px;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    max-width: 1280px;
+    justify-content: flex-start;
+    align-items: center;
+    @media (max-width: 992px) {
+        overflow-x: scroll;
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+    .item{
+        width: 200px;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        font-size: 16px;
+        color: #555;
+        background: rgb(252,252,252);
+        @media (max-width: 992px) {
+            min-width: 140px;
+        }
+        &>a{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        cursor: pointer;
+        &.active:hover,
+        &.active{
+            background: $color_8;
+            color: #fff;
+        }
+        &:hover{
+            background: $color_10;
+        }
+    }
+}

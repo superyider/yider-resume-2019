@@ -1,0 +1,108 @@
+#footer {
+    background: $color_10;
+    overflow: hidden;
+    @media (max-width: 992px) {
+        padding-bottom: 80px;
+    }
+    a{
+        text-decoration: none;
+    }
+    .wrap {
+        width: 100%;
+        margin: 0 auto;
+        padding: 5em 2.5em;
+        @media (max-width: 992px) {
+            padding: 50px 15px;
+        }
+        .go-top{
+            position: fixed;
+            right: 40px;
+            bottom: 60px;
+            padding:20px 10px;
+            border-radius: 20px;
+            background: #555;
+            color: #fff;
+            @media (max-width: 992px) {
+                display: none;
+            }
+        }
+        .footer-box {
+            margin: 0 2em 4em;
+            @media (max-width: 992px) {
+                margin: 0;
+            }
+            .title {
+                color: $color_5;
+                margin-bottom: 1.5rem;
+            }
+            .has-sub {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                height: 34vw;
+                & > li {
+                    margin-bottom: 2rem;
+                }
+            }
+            & > ul {
+                line-height: 2.5em;
+                margin-bottom: 2rem;
+                ol {
+                    color: $color_9;
+                    border-left: 1px solid #ccaf91;
+                    padding-left: 1rem;
+                    a{
+                        color:$color_9;
+                    }
+                }
+            }
+
+            .items{
+                @media (max-width: 992px) {
+                    display: flex;
+                    justify-content:space-between;
+                    font-size: 16px;
+                }
+            }
+
+            .bot-icons{
+                border-top: 1px solid $color_4;
+                padding-top: 3rem;
+                @media (max-width: 992px) {
+                    display: flex;
+                    font-size: 16px;
+                    flex-wrap: wrap;
+                }
+                li{
+                    width: 50%;
+                }
+                .sub-title{
+                    font-weight: 500;
+                    cursor: pointer;
+                }
+                .sub-title:hover{
+                    color:$color_7;
+                    .icon{
+                        background: $color_7;
+                    }
+                }
+            }
+            .sub-title {
+                color: #707070;
+                .icon{
+                    background: #555;
+                    margin: 0 14px 24px 0;
+                    border-radius: 3px;
+                }
+            }
+        }
+    }
+    .copyright{
+        background: #ccaf91;
+        font-size: 15px;
+        color: #fff;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+}

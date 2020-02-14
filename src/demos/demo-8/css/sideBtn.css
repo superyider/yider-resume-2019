@@ -1,0 +1,2 @@
+.side-btn{position:fixed;right:calc((100% - 1440px)/2);z-index:99999;background:#fff}@media (max-width: 1440px){.side-btn{right:0}}@media (max-width: 992px){.side-btn{display:none}}.side-btn .dw-btn-side-2:hover .txt i.icon{background:url(../img/btn/icon-2-hover.svg) no-repeat;background-size:100%}
+/*# sourceMappingURL=sideBtn.css.map */

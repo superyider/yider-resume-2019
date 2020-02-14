@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>魔力寶貝Ｍ</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+    }
+
+    img {
+        border: none;
+        display: inline-block;
+        overflow: hidden;
+    }
+
+    .main-section {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        /*min-width:1024px;*/
+        margin: 0 auto;
+        display: block;
+    }
+
+    .main-section>img {
+        width: 100%;
+        display: block;
+        overflow: hidden;
+    }
+
+    .main_box {
+        width: 50%;
+        margin: 0 auto;
+        position: absolute;
+        top: 0%;
+        left: 25%;
+        z-index: 90;
+    }
+
+    .main_box .logo {
+        position: absolute;
+        width: 28%;
+        top: 2vh;
+        left: 0;
+        z-index: 20;
+    }
+
+    .main_box .logo>img {
+        width: 100%;
+    }
+
+    .main_box>.main_wrap {
+        position: absolute;
+        width: 94%;
+        left: 5%;
+        padding-top: 13%;
+    }
+
+    .main_box>.main_wrap>img {
+        width: 100%;
+    }
+
+    .time_countdown {
+        width: 72%;
+        position: absolute;
+        left: 14%;
+        top: 65%;
+        height: 28%;
+        z-index: 4;
+    }
+
+    .time_countdown>img {
+        width: 100%;
+    }
+
+    .time_wrap {
+        display: block;
+        float: left;
+        width: calc((100%) / 3);
+        text-align: center;
+        position: relative;
+        margin-right: -3%;
+    }
+
+    .time_wrap>img {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .time_wrap>div {
+        position: absolute;
+        width: 70%;
+        height: 80%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 13% 16% 13% 14%;
+    }
+
+    .time_wrap>div>span {
+        width: 48%;
+        margin: 0 -2%;
+        display: block;
+        float: left;
+    }
+
+    .time_wrap>div>span>img {
+        width: 100%;
+        margin: 0%;
+    }
+
+    .fire {
+        position: absolute;
+        mix-blend-mode: screen;
+        transform: scale(0.1);
+        opacity: 0;
+    }
+
+    .fire-1 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: -35%;
+        left: 0%;
+    }
+
+    .fire-2 {
+        position: absolute;
+        width: 70%;
+        height: 60%;
+        top: 0%;
+        left: -20%;
+    }
+
+    .fire-3 {
+        position: absolute;
+        width: 70%;
+        height: 60%;
+        top: 0%;
+        right: -20%;
+    }
+
+    canvas {
+        mix-blend-mode: color-dodge;
+        z-index: 8;
+        width: 100%;
+        height: 100%;
+    }
+
+    .light-1 {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgb(5, 29, 73);
+        z-index: 10;
+        mix-blend-mode: screen;
+        opacity: 0;
+    }
+
+    .color {
+        width: 100%;
+        position: absolute;
+        z-index: 2;
+        opacity: 0;
+    }
+
+    .bg-fron {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 8;
+    }
+
+    .bg-fron2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 8;
+        opacity: 0;
+    }
+
+    .guys {
+        position: absolute;
+        width: 110%;
+        bottom: 0;
+        left: -5%;
+        top: 76%;
+        z-index: 9;
+    }
+
+    .guys img {
+        width: 100%;
+        opacity: 0;
+    }
+
+    .guys .box {
+        position: absolute;
+    }
+
+    .g1 {
+        width: 25%;
+        top: -6%;
+        left: -1.5%;
+        background: url(images/g1.png) no-repeat;
+        background-size: auto 100%;
+        animation: g1-ani .9s steps(1) infinite alternate-reverse;
+    }
+
+    .g2 {
+        width: 17%;
+        top: 23%;
+        left: 23%;
+        background: url(images/g2.png) no-repeat;
+        background-size: auto 100%;
+        animation: g2-ani .4s steps(1) infinite alternate-reverse;
+    }
+
+    .g3 {
+        width: 21%;
+        top: 35%;
+        left: 38.5%;
+        background: url(images/g3.png) no-repeat;
+        background-size: auto 100%;
+        animation: g3-ani 1.5s steps(1) infinite;
+    }
+
+    .g4 {
+        width: 11%;
+        top: 41%;
+        left: 59%;
+        background: url(images/g4.png) no-repeat;
+        background-size: auto 100%;
+        animation: g1-ani .6s steps(1) infinite alternate-reverse;
+    }
+
+    .g5 {
+        width: 28%;
+        top: -7%;
+        left: 69%;
+        background: url(images/g5.png) no-repeat;
+        background-size: auto 100%;
+        animation: g5-ani .4s steps(1) infinite alternate-reverse;
+    }
+
+    .demo {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 9;
+    }
+
+    @keyframes g1-ani {
+        0% {
+            background-position: 25% 0;
+        }
+        10%{
+            background-position: 50% 0;
+        }
+        20% {
+            background-position: 75% 0;
+        }
+        50% {
+            background-position: 100% 0;
+        }
+        100% {
+            background-position: 0% 0;
+        }
+    }
+
+    @keyframes g2-ani {
+        0% {
+            background-position: 25% 0;
+        }
+        10% {
+            background-position: 25% 0;
+        }
+        20% {
+            background-position: 50% 0;
+        }
+        30% {
+            background-position: 75% 0;
+        }
+        40% {
+            background-position: 100% 0;
+        }
+        100% {
+            background-position: 0% 0;
+        }
+    }
+
+    @keyframes g3-ani {
+        0% {
+            background-position: 0% 0;
+        }
+        20% {
+            background-position: 25% 0;
+        }
+        30% {
+            background-position: 50% 0;
+        }
+        40% {
+            background-position: 75% 0;
+        }
+        50% {
+            background-position: 100% 0;
+        }
+        60% {
+            background-position: 0% 0;
+        }
+    }
+
+    @keyframes g4-ani {
+        0% {
+            background-position: 25% 0;
+        }
+        10% {
+            background-position: 25% 0;
+        }
+        15% {
+            background-position: 25% 0;
+        }
+
+        25% {
+            background-position: 50% 0;
+        }
+
+        50% {
+            background-position: 75% 0;
+        }
+
+        75% {
+            background-position: 100% 0;
+        }
+
+        100% {
+            background-position: 0% 0;
+        }
+    }
+
+    @keyframes g5-ani {
+        0% {
+            background-position: 0% 0;
+        }
+
+        25% {
+            background-position: 50% 0;
+        }
+
+        50% {
+            background-position: 100% 0;
+        }
+
+        100% {
+            background-position: 0% 0;
+        }
+    }
+
+    .img-fire-1 {
+        position: absolute;
+        width: 20%;
+        height: 100%;
+        z-index: 7;
+        top: 0;
+        left: 0;
+        mix-blend-mode: hard-light;
+    }
+
+    .img-fire-2 {
+        position: absolute;
+        width: 10%;
+        height: 100%;
+        z-index: 7;
+        top: 10%;
+        left: 20%;
+        mix-blend-mode: hard-light;
+    }
+
+    .img-fire-3 {
+        position: absolute;
+        width: 15%;
+        height: 100%;
+        z-index: 7;
+        top: 10%;
+        left: 80%;
+        mix-blend-mode: hard-light;
+    }
+
+    .img-fire-4 {
+        position: absolute;
+        width: 16%;
+        height: 100%;
+        z-index: 7;
+        top: 10%;
+        left: 70%;
+        mix-blend-mode: hard-light;
+    }
+
+    .fires {
+        width: 100%;
+        transform: scale(0.3);
+        opacity: 0;
+    }
+
+    .line {
+        width: 4%;
+        position: absolute;
+        top: 100%;
+        left: 52%;
+        opacity: 0;
+        transform: scaleY(.5);
+        z-index: 7;
+    }
+
+    .light {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgb(255, 202, 253);
+        display: block;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        z-index: 10;
+        mix-blend-mode: hard-light;
+    }
+
+    .mobile {
+        display: none !important;
+        width: 100%;
+    }
+
+    .top-day-bg{
+        position: absolute;
+        z-index:2;
+        width: 55%;
+        top: 15%;
+        left: 19%;
+        z-index: 2;
+    }
+    .top-day-bg-2{
+        position: absolute;
+        z-index:2;
+        width: 55%;
+        top: 15%;
+        left: 19%;
+        z-index: 5;
+    }
+    .top-day-bg > img,
+    .top-day-bg-2 > img{
+        width:100%;
+    }
+    .top-day-bg-2 > div{
+        width: 50%;
+        position: absolute;
+        display: flex;
+        left: 29%;
+        top: 0;
+    }
+    .top-day-bg-2 > div > span:nth-child(1){
+        width: 35%;
+        display: block;
+        float: left;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: -2vh;
+    }
+    .top-day-bg-2 > div > span:nth-child(2){
+        width: 55%;
+        display: block;
+        float: left;
+        padding-top:10%; 
+    }
+    .top-day-bg-2 > div > span >img{
+        width: 100%;
+    }
+    .main-pic-wrap{
+        width: 100%;
+        display: block;
+    }
+    .main-pic{
+        position: relative;
+        z-index: 3;
+        width: 100%;
+    }
+
+    @media only screen and (max-width: 750px) {
+        .top-day-bg,
+        .top-day-bg-2{
+            top: 32%;
+            left: 19%;
+        }
+        .web {
+            display: none !important;
+        }
+
+        .mobile {
+            display: block !important;
+        }
+
+        .main_box .logo {
+            position: absolute;
+            width: 65%;
+            top: 9vh;
+            left: 18%;
+        }
+
+        .main_box .logo > img{
+            opacity: 0;
+        }
+
+        .main_box {
+            width: 100%;
+            left: 0;
+        }
+        .time_countdown {
+            top:50%;
+        }
+        .main_box>.main_wrap {
+            width: 94%;
+            left: 6%;
+            padding-top: 40%;
+        }
+
+        .guys {
+            width: 100%;
+            left: 0%;
+            top: 80%;
+        }
+
+        .g1 {
+            width: 30%;
+            top: 8%;
+            left: 4%;
+        }
+
+        .g2 {
+            width: 20%;
+            top: 40%;
+            left: 31%;
+        }
+
+        .g4 {
+            width: 13%;
+            top: 58%;
+            left: 49%;
+        }
+
+        .g5 {
+            width: 32%;
+            top: 20%;
+            left: 59%;
+        }
+
+        .time_countdown {
+            width: 76%;
+            position: absolute;
+            left: 12%;
+            top: 70.5%;
+            height: 28%;
+        }
+    }
+</style>
+
+<body>
+    <div class="main-section">
+        <img class="bg-back-c1 color web" src="images/bg-back-min-c1.jpg">
+        <img class="bg-back-c2 color web" src="images/bg-back-min-c2.jpg">
+        <img class="bg-back-c3 color web" src="images/bg-back-min-c4.jpg">
+        <img class="bg-back-c4 color web" src="images/bg-back-min-c3.jpg">
+        <img class="bg-back web" src="images/bg-back-min.jpg">
+        <img class="bg-fron web" src="images/bg-fron-min.png">
+        <img class="mobile" src="images/bg-m-min-3.jpg">
+        <!--煙火-->
+        <div class="light web" style="display: none"></div>
+        <div class="img-fire-1 web">
+            <img class="fires" src="images/fire-1-min.png">
+            <img class="line" src="images/fire-line-1-min.png">
+        </div>
+        <div class="img-fire-2 web">
+            <img class="fires" src="images/fire-2-min.png">
+            <img class="line" src="images/fire-line-2-min.png">
+        </div>
+        <div class="img-fire-3 web">
+            <img class="fires" src="images/fire-3-min.png">
+            <img class="line" src="images/fire-line-3-min.png">
+        </div>
+        <div class="img-fire-4 web">
+            <img class="fires" src="images/fire-4-min.png">
+            <img class="line" src="images/fire-line-4-min.png">
+        </div>
+        <div class="main_box">
+            <div class="main_wrap">
+                <!--main-->
+                <a class="main-pic-wrap" href="https://tw.beanfun.com/CrossGateM/index.aspx" target=""><img class="main-pic" src="images/main-min.png"></a>
+                <div id="days" class="top-day-bg-2 hideday">
+                    <img src="images/top-days-bg.png" style="opacity: 0;">
+                    <div>
+                        <span><img src="images/0.png"></span>
+                        <span><img src="images/top-days.png"></span>
+                    </div>
+                </div>
+                <div class="top-day-bg hideday">
+                    <img src="images/top-days-bg.png">
+                </div>
+                <!--倒數-->
+                <div class="time_countdown">
+                    <div class="time_wrap" id="hours">
+                        <img src="images/hours_bg-min.png">
+                        <div>
+                            <span><img src="images/0.png"></span>
+                            <span><img src="images/0.png"></span>
+                        </div>
+                    </div>
+                    <div class="time_wrap" id="minutes">
+                        <img src="images/mins_bg-min.png">
+                        <div>
+                            <span><img src="images/0.png"></span>
+                            <span><img src="images/0.png"></span>
+                        </div>
+                    </div>
+                    <div class="time_wrap" id="sec">
+                        <img src="images/secs_bg-min.png">
+                        <div>
+                            <span><img src="images/0.png"></span>
+                            <span><img src="images/0.png"></span>
+                        </div>
+                    </div>
+                </div>
+                <!--角色-->
+                <div class="guys">
+                    <div class="box g1"><img src="images/g1-0-min.png"></div>
+                    <div class="box g2"><img src="images/g2-0-min.png"></div>
+                    <div class="box g3 web"><img src="images/g3-0-min.png"></div>
+                    <div class="box g4"><img src="images/g4-0-min.png"></div>
+                    <div class="box g5"><img src="images/g5-0-min.png"></div>
+                </div>
+            </div>
+            <a href="https://tw.beanfun.com/CrossGateM/index.aspx" class="logo">
+                <img src="images/logo-min.png">
+            </a>
+        </div>
+    </div>
+</body>
+<script src="https://tw.hicdn.beanfun.com/beanfun/GamaWWW/allProducts/script/game-footer.js" id="game-footer"
+    prod="魔力寶貝M" theme="dark"></script>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
+<script>
+    /*倒數計時*/
+    function countdown() {
+        var now = new Date();
+        var eventDate = new Date(2020, 4, 1);//實際為3/1
+        var currentTiime = now.getTime();
+        var eventTime = eventDate.getTime();
+        var remTime = eventTime - currentTiime;
+
+        var s = Math.floor(remTime / 1000);
+        var m = Math.floor(s / 60);
+        var h = Math.floor(m / 60);
+        var d = Math.floor(h / 24);
+
+        /*
+        if(d==0){
+            $('.hideday').hide();
+        }
+        */
+
+        h %= 24;
+        m %= 60;
+        s %= 60;
+
+        d = (d < 10) ? "0" + d : d;
+        h = (h < 10) ? "0" + h : h;
+        m = (m < 10) ? "0" + m : m;
+        s = (s < 10) ? "0" + s : s;
+
+        $("#days > div").html(picnum2(d));
+        $("#hours > div").html(picnum(h));
+        $("#minutes > div").html(picnum(m));
+        $("#sec > div").html(picnum(s));
+        setTimeout(countdown, 1000);
+
+    }
+
+    function picnum(target) {
+        imgary = (target + "").split("");
+        if(target>0){
+            return "<span><img src='images/" + imgary[0] + ".png' /></span><span><img src='images/" + imgary[1] + ".png' /></span>";
+        }else{
+            return "<span><img src='images/0.png' /></span><span><img src='images/0.png' /></span>";
+        }
+    }
+    function picnum2(target) {
+        imgary = (target + "").split("");
+        if(target>0){
+            return "<span><img src='images/" + imgary[1] + ".png' /></span><span><img src='images/top-days.png' /></span>";
+        }else{
+            return "<span><img src='images/0.png' /></span><span><img src='images/top-days.png' /></span>";
+        }
+    }
+
+    countdown();
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        var intro = new TimelineMax({ delay: .5 });
+        var light = new TimelineMax({ delay: 2, repeatDelay: 1, repeat: -1 });
+        var fire1 = new TimelineMax({ delay: 3, repeatDelay: .3, repeat: -1 });
+        var fire2 = new TimelineMax({ delay: 3.1, repeatDelay: .1, repeat: -1 });
+        var fire3 = new TimelineMax({ delay: 3.4, repeatDelay: .6, repeat: -1 });
+        var fire4 = new TimelineMax({ delay: 3.6, repeatDelay: .2, repeat: -1 });
+
+        intro
+            .from($('.main-pic')        , 1.5, { y: 100, scale: 0.5, opacity: 0, ease: Elastic.easeOut })
+            .from($('.time_countdown')  , 1.5, { scale: 0.9, opacity: 0, ease: Elastic.easeOut }, '-=1')
+            .from($('.top-day-bg')  , 1.5, { scale: 0.9, opacity: 0, ease: Elastic.easeOut }, '-=1')
+            .from($('.top-day-bg-2')  , 1.5, { scale: 0.9, opacity: 0, ease: Elastic.easeOut }, '-=1')
+            .from($('.g1')              , 1.2, { y: 100, scale: 0.5, opacity: 0, ease: Elastic.easeOut }, '-=1')
+            .from($('.g2')              , 1.2, { y: 100, scale: 0.5, opacity: 0, ease: Elastic.easeOut }, '-=1')
+            .from($('.g3')              , 1.2, { y: 100, scale: 0.5, opacity: 0, ease: Elastic.easeOut }, '-=1')
+            .from($('.g4')              , 1.2, { y: 100, scale: 0.5, opacity: 0, ease: Elastic.easeOut }, '-=1')
+            .from($('.g5')              , 1.2, { y: 100, scale: 0.5, opacity: 0, ease: Elastic.easeOut }, '-=1');
+
+        light
+            .to($('.light-1')           , 0.2, { opacity: 0.6 })
+            .to($('.light-1')           , 0.1, { opacity: 0 })
+            .to($('.light-1')           , 0.2, { opacity: 0.6 })
+            .to($('.light-1')           , 0.1, { opacity: 0 })
+
+        fire1
+            .to($('.img-fire-1 .line')  , .7, { scale: 0.8, top: '20%', opacity: 1 })
+            .to($('.img-fire-1 .line')  , .4, { scale: 1, opacity: 0 })
+            .to($('.img-fire-1 .fires') , .2, { scale: 2, y: 0, opacity: 1 }, '-=.5')
+            .to($('.bg-fron2')          , .1, { opacity: 0.1 }, '-=.1')
+            .to($('.bg-back-c1')        , .1, { opacity: 0.1 }, '-=.1')
+            .to($('.light')             , .1, { opacity: 0 })
+            .to($('.bg-fron2')          , .1, { opacity: 0 }, '-=.1')
+            .to($('.bg-back-c1')        , .1, { opacity: 0 }, '-=.1')
+            .to($('.light')             , .1, { opacity: 0.05 })
+            .to($('.bg-fron2')          , .1, { opacity: 0.1 }, '-=.1')
+            .to($('.bg-back-c1')        , .1, { opacity: 0.1 }, '-=.1')
+            .to($('.light')             , .1, { opacity: 0 })
+            .to($('.bg-fron2')          , .1, { opacity: 0 }, '-=.1')
+            .to($('.bg-back-c1')        , .1, { opacity: 0 }, '-=.1')
+            .to($('.img-fire-1 .fires') , .3, { scale: 2.5, y: 20, opacity: 0 }, '-=.6')
+
+        fire2
+            .to($('.img-fire-2 .line')  , .7, { scale: 1, top: '10%', opacity: 1 })
+            .to($('.img-fire-2 .line')  , .4, { scale: 1, opacity: 0 })
+            .to($('.img-fire-2 .fires') , .2, { scale: 2, y: 0, opacity: 1 }, '-=.5')
+            .to($('.bg-fron2')          , .1, { opacity: 0.1 }, '-=.1')
+            .to($('.bg-back-c2')        , .1, { opacity: 0.1 }, '-=.1')
+            .to($('.light')             , .1, { opacity: 0 })
+            .to($('.bg-fron2')          , .1, { opacity: 0 }, '-=.1')
+            .to($('.bg-back-c2')        , .1, { opacity: 0 }, '-=.1')
+            .to($('.light')             , .1, { opacity: 0.05 })
+            .to($('.bg-fron2')          , .1, { opacity: 0.1 }, '-=.1')
+            .to($('.bg-back-c2')        , .1, { opacity: 0.1 }, '-=.1')
+            .to($('.light')             , .1, { opacity: 0 })
+            .to($('.bg-fron2')          , .1, { opacity: 0 }, '-=.1')
+            .to($('.bg-back-c2')        , .1, { opacity: 0 }, '-=.1')
+            .to($('.img-fire-2 .fires') , .3, { scale: 2.5, y: 20, opacity: 0 }, '-=.6')
+
+        fire3
+            .to($('.img-fire-3 .line')  , .7, { scale: 0.8, top: '13%', opacity: 1 })
+            .to($('.img-fire-3 .line')  , .4, { scale: 1, opacity: 0 })
+            .to($('.img-fire-3 .fires') , .2, { scale: 2, y: 0, opacity: 1 }, '-=.5')
+            .to($('.bg-fron2')          , .1, { opacity: 0.1 }, '-=.1')
+            .to($('.bg-back-c3')        , .1, { opacity: 0.1 }, '-=.1')
+            .to($('.light')             , .1, { opacity: 0 })
+            .to($('.bg-fron2')          , .1, { opacity: 0 }, '-=.1')
+            .to($('.bg-back-c3')        , .1, { opacity: 0 }, '-=.1')
+            .to($('.light')             , .1, { opacity: 0.05 })
+            .to($('.bg-fron2')          , .1, { opacity: 0.1 }, '-=.1')
+            .to($('.bg-back-c3')        , .1, { opacity: 0.1 }, '-=.1')
+            .to($('.light')             , .1, { opacity: 0 })
+            .to($('.bg-fron2')          , .1, { opacity: 0 }, '-=.1')
+            .to($('.bg-back-c3')        , .1, { opacity: 0 }, '-=.1')
+            .to($('.img-fire-3 .fires') , .3, { scale: 2.5, y: 20, opacity: 0 }, '-=.6')
+
+        fire4
+            .to($('.img-fire-4 .line')  , .7, { scale: 0.8, top: '15%', opacity: 1 })
+            .to($('.img-fire-4 .line')  , .4, { scale: 1, opacity: 0 })
+            .to($('.img-fire-4 .fires') , .2, { scale: 2, y: 0, opacity: 1 }, '-=.5')
+            .to($('.bg-fron2')          , .1, { opacity: 0.1 }, '-=.1')
+            .to($('.bg-back-c4')        , .1, { opacity: 0.1 }, '-=.1')
+            .to($('.light')             , .1, { opacity: 0 })
+            .to($('.bg-fron2')          , .1, { opacity: 0 }, '-=.1')
+            .to($('.bg-back-c4')        , .1, { opacity: 0 }, '-=.1')
+            .to($('.light')             , .1, { opacity: 0.05 })
+            .to($('.bg-fron2')          , .1, { opacity: 0.1 }, '-=.1')
+            .to($('.bg-back-c4')        , .1, { opacity: 0.1 }, '-=.1')
+            .to($('.light')             , .1, { opacity: 0 })
+            .to($('.bg-fron2')          , .1, { opacity: 0 }, '-=.1')
+            .to($('.bg-back-c4')        , .1, { opacity: 0 }, '-=.1')
+            .to($('.img-fire-4 .fires') , .3, { scale: 2.5, y: 20, opacity: 0 }, '-=.6')
+    })
+</script>
+
+</html>

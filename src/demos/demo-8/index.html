@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/myHeader.js"></script>
+    <script src="js/sideBtn.js"></script>
+    <script src="js/searchBox.js"></script>
+    <script src="js/myFooter.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-header></my-header>
+        <!--home-->
+        <div class="home">
+            <side-btn></side-btn>
+
+            <!-- ========================================= 輪播 ========================================= -->
+
+            <div class="my-slick-box container-1440">
+                <div class="slick-info-wrap container-1440">
+                    <!-- next & prev -->
+                    <button ref="kv-prev" @click="go_prev('kv')" class="slick-prev"></button>
+                    <button ref="kv-next" @click="go_next('kv')" class="slick-next"></button>
+                </div>
+
+                <!-- show-text -->
+                <div class="show-text">{{ kv_SlickData.currentTitle }}</div>
+
+                <!-- preview-box -->
+                <div class="preview-box d-none d-lg-flex">
+                    <div v-for="(item,index) in kv_SlickData.items" :key="index" :class="['preview-item',{ active: kv_SlickData.currentBanner === index}]">
+                        <a @click="gotoItem('kv',index)" :style="`background-image:url(${ item.thumb });`"></a>
+                    </div>
+                </div>
+
+                <!-- 輪播內容 -->
+                <div class="kv-slick slick">
+                    <picture v-for="(item,index) in kv_SlickData.items" :key="index">
+                        <source media="(max-width: 991px)" :srcset="item.img_m" />
+                        <img :src="item.img" />
+                    </picture>
+                </div>
+            </div>
+
+            <!-- ========================================= sec 1 ========================================= -->
+
+            <section class="sec1">
+                <div class="container-1280">
+                    <!-- 想找專屬設計師 | 家俱/用品/好東西 -->
+                    <div class="row no-gutters mb-3 d-none d-md-flex">
+                        <!-- 想找專屬設計師 -->
+                        <a href="" class="col-md dw-btn-md-1">
+                            <span class="icon icon-btn-icon-1"></span>
+                            <span class="txt">想找 專屬設計師</span>
+                        </a>
+    
+                        <!-- 想找家俱/用品/好東西 -->
+                        <a href="" class="col-md dw-btn-md-2">
+                            <span class="icon icon-btn-icon-2"></span>
+                            <span class="txt">想找 家俱/用品/好東西？</span>
+                        </a>
+                    </div>
+    
+                    <!-- Interior -->
+                    <div class="home-title">
+                        <div class="title">Interior</div>
+                        <div class="sub-title">精選設計公司</div>
+                        <div class="arrow"></div>
+                    </div>
+    
+                    <div class="sec1-slick">
+                        <div class="slick-info-wrap container-1440">
+                            <!-- next & prev -->
+                            <button ref="kv-prev" @click="go_prev('sec1')" class="slick-prev"></button>
+                            <button ref="kv-next" @click="go_next('sec1')" class="slick-next"></button>
+                        </div>
+                        <div class="sec1slick slick">
+                            <div v-for="(item,index) in sec1_SlickData.items" :key="index" class="item">
+                                <a href="">
+                                    <div class="type">{{ item.type }}</div>
+                                    <div class="img">
+                                        <img :src=" item.img " />
+                                    </div>
+                                    <div class="name d-flex">
+                                        <i class="icon-triangle"></i>
+                                        {{ item.name }}
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================= sec 2 ========================================= -->
+
+            <section class="sec2">
+                <div class="Designer container-1280">
+                    <!-- Designer -->
+                    <div class="home-title">
+                        <div class="title">Designer</div>
+                        <div class="sub-title">風格設計師</div>
+                        <a href="" class="arrow"></a>
+                    </div>
+    
+                    <div class="design-box">
+                        <!-- tabs -->
+                        <ul class="dw-tabs" name="design">
+                            <li :class="['item',{ active: this.selectedTab.design === '0'}]"><a @click.stop="tabClick('0')">小坪數專家</a></li>
+                            <li :class="['item',{ active: this.selectedTab.design === '1'}]"><a @click.stop="tabClick('1')">精品店氛圍</a></li>
+                            <li :class="['item',{ active: this.selectedTab.design === '2'}]"><a @click.stop="tabClick('2')">休閒風冠軍</a></li>
+                            <li :class="['item',{ active: this.selectedTab.design === '3'}]"><a @click.stop="tabClick('3')">跳脫傳統</a></li>
+                            <li :class="['item',{ active: this.selectedTab.design === '4'}]"><a @click.stop="tabClick('4')">異國鄉村</a></li>
+                            <li :class="['item',{ active: this.selectedTab.design === '5'}]"><a @click.stop="tabClick('5')">級簡就是王道</a></li>
+                        </ul>
+                        <!--小坪數專家-->
+                        <div v-if="this.selectedTab.design == 0" class="item-wrap">
+                            <div v-for="(item,index) in 8" :key="index" class="item">
+                                <div class="img">
+                                    <img src="img/design-1.jpg" class="w-100" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">楊煥生、郭士豪000</div>
+                                    <div class="sub-title d-flex">
+                                        <i class="icon-triangle-w"></i>
+                                        楊煥生設計事業有限公司
+                                    </div>
+                                    <div
+                                        class="discript"
+                                    >精通解構重組 運用細節巧思創造空間價值YHS DESIGN設計事業深獲青睞，奠基於經營團隊的扎實經驗與專業上。主持人楊煥生設計師2005年創立...</div>
+                                    <a href="" class="more">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--精品店氛圍-->
+                        <div v-if="this.selectedTab.design == 1" class="item-wrap">
+                            <div v-for="(item,index) in 8" :key="index" class="item">
+                                <div class="img">
+                                    <img src="img/design-2.jpg" class="w-100" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">楊煥生、郭士豪111</div>
+                                    <div class="sub-title d-flex">
+                                        <i class="icon-triangle-w"></i>
+                                        楊煥生設計事業有限公司
+                                    </div>
+                                    <div
+                                        class="discript"
+                                    >精通解構重組 運用細節巧思創造空間價值YHS DESIGN設計事業深獲青睞，奠基於經營團隊的扎實經驗與專業上。主持人楊煥生設計師2005年創立...</div>
+                                    <a href="" class="more">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--休閒風冠軍-->
+                        <div v-if="this.selectedTab.design == 2" class="item-wrap">
+                            <div v-for="(item,index) in 8" :key="index" class="item">
+                                <div class="img">
+                                    <img src="img/design-1.jpg" class="w-100" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">楊煥生、郭士豪222</div>
+                                    <div class="sub-title d-flex">
+                                        <i class="icon-triangle-w"></i>
+                                        楊煥生設計事業有限公司
+                                    </div>
+                                    <div
+                                        class="discript"
+                                    >精通解構重組 運用細節巧思創造空間價值YHS DESIGN設計事業深獲青睞，奠基於經營團隊的扎實經驗與專業上。主持人楊煥生設計師2005年創立...</div>
+                                    <a href="" class="more">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--跳脫傳統-->
+                        <div v-if="this.selectedTab.design == 3" class="item-wrap">
+                            <div v-for="(item,index) in 8" :key="index" class="item">
+                                <div class="img">
+                                    <img src="img/design-2.jpg" class="w-100" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">楊煥生、郭士豪333</div>
+                                    <div class="sub-title d-flex">
+                                        <i class="icon-triangle-w"></i>
+                                        楊煥生設計事業有限公司
+                                    </div>
+                                    <div
+                                        class="discript"
+                                    >精通解構重組 運用細節巧思創造空間價值YHS DESIGN設計事業深獲青睞，奠基於經營團隊的扎實經驗與專業上。主持人楊煥生設計師2005年創立...</div>
+                                    <a href="" class="more">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--異國鄉村-->
+                        <div v-if="this.selectedTab.design == 4" class="item-wrap">
+                            <div v-for="(item,index) in 8" :key="index" class="item">
+                                <div class="img">
+                                    <img src="img/design-1.jpg" class="w-100" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">楊煥生、郭士豪444</div>
+                                    <div class="sub-title d-flex">
+                                        <i class="icon-triangle-w"></i>
+                                        楊煥生設計事業有限公司
+                                    </div>
+                                    <div
+                                        class="discript"
+                                    >精通解構重組 運用細節巧思創造空間價值YHS DESIGN設計事業深獲青睞，奠基於經營團隊的扎實經驗與專業上。主持人楊煥生設計師2005年創立...</div>
+                                    <a href="" class="more">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--級簡就是王道-->
+                        <div v-if="this.selectedTab.design == 5" class="item-wrap">
+                            <div v-for="(item,index) in 8" :key="index" class="item">
+                                <div class="img">
+                                    <img src="img/design-2.jpg" class="w-100" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">楊煥生、郭士豪555</div>
+                                    <div class="sub-title d-flex">
+                                        <i class="icon-triangle-w"></i>
+                                        楊煥生設計事業有限公司
+                                    </div>
+                                    <div
+                                        class="discript"
+                                    >精通解構重組 運用細節巧思創造空間價值YHS DESIGN設計事業深獲青睞，奠基於經營團隊的扎實經驗與專業上。主持人楊煥生設計師2005年創立...</div>
+                                    <a href="" class="more">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="row no-gutters mb-3 justify-content-center">
+                            <!-- 查看全部 -->
+                            <a href="" class="col-12 col-md-auto dw-btn w540x80 mb-3 mr-md-1">
+                                <span class="txt">查看全部</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =========================================  winner  ========================================= -->
+
+                <div class="Winner container-1280">
+                    <!-- winner -->
+                    <div class="home-title red">
+                        <div class="title">Winner</div>
+                        <div class="sub-title">國際獲獎設計師</div>
+                        <a href="" class="arrow"></a>
+                    </div>
+    
+                    <!-- winner-box -->
+                    <div class="winner-box">
+                        <!-- win-slick -->
+                        <div class="win-slick">
+                            <div class="win_slick slick">
+                                <div v-for="(item,index) in 8" :key="index" class="item">
+                                    <img src="img/winner-slick-1.jpg" class="w-100" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- win-ctrl -->
+                        <div class="win-ctrl">
+                            <a href="javascript:;" @click="go_prev('winner')" class="prev"></a>
+                            <a href="javascript:;" @click="go_next('winner')" class="next"></a>
+                        </div>
+                        <!-- win-discript -->
+                        <div class="win-info">
+                            <div class="title"></div>
+                            <div class="sub-title d-flex">
+                                <i class="icon-triangle"></i>
+                                質感製作設計有限公司
+                            </div>
+                            <div class="discript">
+                                <span>2019 義大利 A'Design Award</span>
+                                <span>2017 IDEA-TOPS艾特獎 最佳會所設計</span>
+                                <span class="red">2017 NAID AWARD 住宅B類優良作品獎</span>
+                            </div>
+                            <a href="" class="more">查看更多</a>
+                        </div>
+                        <!-- win-bot -->
+                        <div class="win-bot">
+                            <div @click="gotoItem('winner',0)" class="item"><img src="img/winner-1.jpg" /></div>
+                            <div @click="gotoItem('winner',1)" class="item"><img src="img/winner-2.jpg" /></div>
+                            <div @click="gotoItem('winner',2)" class="item"><img src="img/winner-3.jpg" /></div>
+                            <div @click="gotoItem('winner',3)" class="item"><img src="img/winner-4.jpg" /></div>
+                            <div @click="gotoItem('winner',4)" class="item"><img src="img/winner-5.jpg" /></div>
+                            <div @click="gotoItem('winner',5)" class="item"><img src="img/winner-6.jpg" /></div>
+                            <div @click="gotoItem('winner',6)" class="item"><img src="img/winner-7.jpg" /></div>
+                            <div @click="gotoItem('winner',7)" class="item"><img src="img/winner-1.jpg" /></div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!-- =========================================  sec3  ========================================= -->
+
+            <section class="sec3">
+                <div class="container-1280">
+                    <!-- banner -->
+                    <div class="sec3-slick">
+                        <div class="slick-info-wrap container-1440">
+                            <!-- next & prev -->
+                            <button ref="kv-prev" @click="go_prev('sec3')" class="slick-prev"></button>
+                            <button ref="kv-next" @click="go_next('sec3')" class="slick-next"></button>
+                        </div>
+                        <div class="sec3slick slick">
+                            <div class="item"><img src="img/banner-center.jpg" /></div>
+                            <div class="item"><img src="img/banner-center.jpg" /></div>
+                            <div class="item"><img src="img/banner-center.jpg" /></div>
+                        </div>
+                    </div>
+    
+                    <!-- Article -->
+                    <div class="home-title">
+                        <div class="title">Article</div>
+                        <div class="sub-title">熱門搜尋文章</div>
+                        <a href="" class="arrow"></a>
+                    </div>
+    
+                    <div class="article-box">
+                        <!-- tabs -->
+                        <ul class="dw-tabs" name="article">
+                            <li :class="['item',{ active: this.selectedTab.article === '0'}]"><a @click.stop="tabClick('0')">主題名稱</a></li>
+                            <li :class="['item',{ active: this.selectedTab.article === '1'}]"><a @click.stop="tabClick('1')">主題名稱</a></li>
+                            <li :class="['item',{ active: this.selectedTab.article === '2'}]"><a @click.stop="tabClick('2')">主題名稱</a></li>
+                            <li :class="['item',{ active: this.selectedTab.article === '3'}]"><a @click.stop="tabClick('3')">主題名稱</a></li>
+                            <li :class="['item',{ active: this.selectedTab.article === '4'}]"><a @click.stop="tabClick('4')">主題名稱</a></li>
+                            <li :class="['item',{ active: this.selectedTab.article === '5'}]"><a @click.stop="tabClick('5')">主題名稱</a></li>
+                        </ul>
+    
+                        <!-- 主題名稱 0 -->
+                        <div v-if="this.selectedTab.article == 0" class="item-wrap">
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-2.png" class="w-100" /></div>
+                                <div class="title">0000 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-2.png" class="w-100" /></div>
+                                <div class="title">0000 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-2.png" class="w-100" /></div>
+                                <div class="title">0000 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                        </div>
+    
+                        <!-- 主題名稱 1 -->
+                        <div v-if="this.selectedTab.article == 1" class="item-wrap">
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-1.png" class="w-100" /></div>
+                                <div class="title">1111 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-1.png" class="w-100" /></div>
+                                <div class="title">1111 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-1.png" class="w-100" /></div>
+                                <div class="title">1111 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                        </div>
+    
+                        <!-- 主題名稱 2 -->
+                        <div v-if="this.selectedTab.article == 2" class="item-wrap">
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-2.png" class="w-100" /></div>
+                                <div class="title">2222 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-2.png" class="w-100" /></div>
+                                <div class="title">2222 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-2.png" class="w-100" /></div>
+                                <div class="title">2222 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                        </div>
+    
+                        <!-- 主題名稱 3 -->
+                        <div v-if="this.selectedTab.article == 3" class="item-wrap">
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-1.png" class="w-100" /></div>
+                                <div class="title">3333 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-1.png" class="w-100" /></div>
+                                <div class="title">3333 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-1.png" class="w-100" /></div>
+                                <div class="title">3333 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                        </div>
+    
+                        <!-- 主題名稱 4 -->
+                        <div v-if="this.selectedTab.article == 4" class="item-wrap">
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-2.png" class="w-100" /></div>
+                                <div class="title">4444 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-2.png" class="w-100" /></div>
+                                <div class="title">4444 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-2.png" class="w-100" /></div>
+                                <div class="title">4444 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                        </div>
+    
+                        <!-- 主題名稱 5 -->
+                        <div v-if="this.selectedTab.article == 5" class="item-wrap">
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-1.png" class="w-100" /></div>
+                                <div class="title">5555 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-1.png" class="w-100" /></div>
+                                <div class="title">5555 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                            <div class="item">
+                                <div class="date"><i class="icon-calender"></i> 2019.10.11</div>
+                                <div class="img"><img src="img/article-1.png" class="w-100" /></div>
+                                <div class="title">5555 終於等到IKEA X Virgil Abloh聯名...</div>
+                                <a href="#" class="more">閱讀文章</a>
+                            </div>
+                        </div>
+    
+                        <div class="row no-gutters mb-3 justify-content-center">
+                            <!-- 查看全部 -->
+                            <a href="" class="col-12 col-md-auto dw-btn w540x80 mb-3 mr-md-1">
+                                <span class="txt">查看全部</span>
+                            </a>
+                        </div>
+                    </div>
+    
+                    
+    
+                    <!-- ad-wrap -->
+                    <div class="ad-wrap">
+                        <a href="" class="item"><img src="img/timthumb (1).jpg" /></a>
+                        <a href="" class="item"><img src="img/timthumb (2).jpg" /></a>
+                        <a href="" class="item"><img src="img/timthumb (3).jpg" /></a>
+                        <a href="" class="item"><img src="img/timthumb (2).jpg" /></a>
+                        <a href="" class="item"><img src="img/timthumb (1).jpg" /></a>
+                        <a href="" class="item"><img src="img/timthumb (1).jpg" /></a>
+                        <a href="" class="item"><img src="img/timthumb (2).jpg" /></a>
+                        <a href="" class="item"><img src="img/timthumb (3).jpg" /></a>
+                        <a href="" class="item"><img src="img/timthumb (2).jpg" /></a>
+                        <a href="" class="item"><img src="img/timthumb (1).jpg" /></a>
+                    </div>
+    
+                    <!-- hot article -->
+                    <div class="hot container-1280 row no-gutters">
+                        <!-- 最新文章 -->
+                        <div class="col no-gutters">
+                            <div class="home-title d-flex">
+                                <div class="sub-title">最新文章</div>
+                                <a href="" class="arrow"></a>
+                            </div>
+    
+                            <div class="item-wrap">
+                                <a href="" class="item">
+                                    <div class="img">
+                                        <img src="img/timthumb (7).jpg" />
+                                    </div>
+                                    <div class="content">
+                                        <div class="date">2019.10.11</div>
+                                        <div class="discript">形隨心流！倫敦藝術沙龍Flow Gallery完美結合「藝廊」與「居家」</div>
+                                    </div>
+                                </a>
+                                <a href="" class="item">
+                                    <div class="img">
+                                        <img src="img/timthumb (7).jpg" />
+                                    </div>
+                                    <div class="content">
+                                        <div class="date">2019.10.11</div>
+                                        <div class="discript">形隨心流！倫敦藝術沙龍Flow Gallery完美結合「藝廊」與「居家」</div>
+                                    </div>
+                                </a>
+                                <a href="" class="item">
+                                    <div class="img">
+                                        <img src="img/timthumb (7).jpg" />
+                                    </div>
+                                    <div class="content">
+                                        <div class="date">2019.10.11</div>
+                                        <div class="discript">形隨心流！倫敦藝術沙龍Flow Gallery完美結合「藝廊」與「居家」</div>
+                                    </div>
+                                </a>
+                            </div>
+    
+                            <!-- 查看全部 -->
+                            <div class="more row justify-content-end no-gutters pt-5">
+                                <a href="" class="col-12 col-md-auto dw-btn w300x80">
+                                    <span class="txt">查看全部</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- 焦點文章 -->
+                        <div class="col no-gutters">
+                            <div class="home-title d-flex">
+                                <div class="sub-title">焦點文章</div>
+                                <a href="" class="arrow"></a>
+                            </div>
+    
+                            <div class="item-wrap">
+                                <a href="" class="item">
+                                    <div class="img">
+                                        <img src="img/timthumb (7).jpg" />
+                                    </div>
+                                    <div class="content">
+                                        <div class="date">2019.10.11</div>
+                                        <div class="discript">形隨心流！倫敦藝術沙龍Flow Gallery完美結合「藝廊」與「居家」</div>
+                                    </div>
+                                </a>
+                                <a href="" class="item">
+                                    <div class="img">
+                                        <img src="img/timthumb (7).jpg" />
+                                    </div>
+                                    <div class="content">
+                                        <div class="date">2019.10.11</div>
+                                        <div class="discript">形隨心流！倫敦藝術沙龍Flow Gallery完美結合「藝廊」與「居家」</div>
+                                    </div>
+                                </a>
+                                <a href="" class="item">
+                                    <div class="img">
+                                        <img src="img/timthumb (7).jpg" />
+                                    </div>
+                                    <div class="content">
+                                        <div class="date">2019.10.11</div>
+                                        <div class="discript">形隨心流！倫敦藝術沙龍Flow Gallery完美結合「藝廊」與「居家」</div>
+                                    </div>
+                                </a>
+                            </div>
+    
+                            <!-- 查看全部 -->
+                            <div class="more row justify-content-end no-gutters pt-5">
+                                <a href="" class="col-12 col-md-auto dw-btn w300x80">
+                                    <span class="txt">查看全部</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sec7">
+                <div class="container-1280">
+                    <!-- Collections -->
+                    <div class="home-title d-flex">
+                        <div class="title">Collections</div>
+                        <div class="sub-title">嚴選名品</div>
+                        <div class="arrow"></div>
+                    </div>
+    
+                    <div class="collections-box">
+                        <!-- tabs -->
+                        <ul class="dw-tabs" name="collections">
+                            <li :class="['item',{ active: this.selectedTab.collections === '0'}]"><a @click.stop="tabClick('0')">精選</a></li>
+                            <li :class="['item',{ active: this.selectedTab.collections === '1'}]"><a @click.stop="tabClick('1')">家具</a></li>
+                            <li :class="['item',{ active: this.selectedTab.collections === '2'}]"><a @click.stop="tabClick('2')">家飾</a></li>
+                            <li :class="['item',{ active: this.selectedTab.collections === '3'}]"><a @click.stop="tabClick('3')">家電</a></li>
+                            <li :class="['item',{ active: this.selectedTab.collections === '4'}]"><a @click.stop="tabClick('4')">廚具</a></li>
+                            <li :class="['item',{ active: this.selectedTab.collections === '5'}]"><a @click.stop="tabClick('5')">衛浴</a></li>
+                            <li :class="['item',{ active: this.selectedTab.collections === '6'}]"><a @click.stop="tabClick('6')">建材建材</a></li>
+                        </ul>
+                        <!-- 精選 -->
+                        <div v-if="this.selectedTab.collections == 0" class="item-wrap">
+                            <div v-for="(item,index) in 8" :key="index" class="item">
+                                <div class="img">
+                                    <img src="img/collections-1.jpg" class="w-100" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">0000 特力屋4款現代感燈具上百種組合點亮居家空間</div>
+                                    <a class="more">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 家具 -->
+                        <div v-if="this.selectedTab.collections == 1" class="item-wrap">
+                            <div v-for="(item,index) in 8" :key="index" class="item">
+                                <div class="img">
+                                    <img src="img/collections-1.jpg" class="w-100" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">1111 特力屋4款現代感燈具上百種組合點亮居家空間</div>
+                                    <a class="more">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 家飾 -->
+                        <div v-if="this.selectedTab.collections == 2" class="item-wrap">
+                            <div v-for="(item,index) in 8" :key="index" class="item">
+                                <div class="img">
+                                    <img src="img/collections-1.jpg" class="w-100" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">2222 特力屋4款現代感燈具上百種組合點亮居家空間</div>
+                                    <a class="more">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 家電 -->
+                        <div v-if="this.selectedTab.collections == 3" class="item-wrap">
+                            <div v-for="(item,index) in 8" :key="index" class="item">
+                                <div class="img">
+                                    <img src="img/collections-1.jpg" class="w-100" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">3333 特力屋4款現代感燈具上百種組合點亮居家空間</div>
+                                    <a class="more">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 廚具 -->
+                        <div v-if="this.selectedTab.collections == 4" class="item-wrap">
+                            <div v-for="(item,index) in 8" :key="index" class="item">
+                                <div class="img">
+                                    <img src="img/collections-1.jpg" class="w-100" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">4444 特力屋4款現代感燈具上百種組合點亮居家空間</div>
+                                    <a class="more">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 衛浴 -->
+                        <div v-if="this.selectedTab.collections == 5" class="item-wrap">
+                            <div v-for="(item,index) in 8" :key="index" class="item">
+                                <div class="img">
+                                    <img src="img/collections-1.jpg" class="w-100" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">5555 特力屋4款現代感燈具上百種組合點亮居家空間</div>
+                                    <a class="more">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 建材建材 -->
+                        <div v-if="this.selectedTab.collections == 6" class="item-wrap">
+                            <div v-for="(item,index) in 8" :key="index" class="item">
+                                <div class="img">
+                                    <img src="img/collections-1.jpg" class="w-100" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">6666 特力屋4款現代感燈具上百種組合點亮居家空間</div>
+                                    <a class="more">查看更多</a>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="row no-gutters mb-3 justify-content-center">
+                            <!-- 查看全部 -->
+                            <a href="" class="col-12 col-md-auto dw-btn w540x80 mb-3 mr-md-1">
+                                <span class="txt">查看全部</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 想找  專屬設計師 PC -->
+                <div class="container-1440 bot-btns d-none d-lg-block">
+                    <div class="row no-gutters justify-content-center d-none d-lg-flex pc-mode">
+                        <!-- 想找  專屬設計師 -->
+                        <a href class="col-md dw-btn-lg-1">
+                            <span class="icon icon-btn-icon-1"></span>
+                            <span class="txt">想找 專屬設計師</span>
+                        </a>
+            
+                        <!-- 想找  專屬設計師 -->
+                        <a href class="col-md dw-btn-lg-2">
+                            <span class="icon icon-btn-icon-2"></span>
+                            <span class="txt">想找 家俱/用品/好東西？</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 想找  專屬設計師 MB -->
+                <div class="bot-btns-m dw-bottom-btn d-lg-none d-flex">
+                    <a href class="dw-btn-side-1 col">
+                        <span class="txt">
+                            <i class="icon icon-btn-icon-1"></i> 找設計師
+                        </span>
+                    </a>
+    
+                    <a href class="dw-btn-side-2 col">
+                        <span class="txt">
+                            <i class="icon icon-btn-icon-2"></i> 嚴選名品
+                        </span>
+                    </a>
+                    <a  class="dw-btn-side-3" @click="openSearch">
+                        <i class="icon icon-search"></i>
+                    </a>            
+                </div>
+            </section>
+        </div>
+        <!--search box-->
+        <search-box ref="searchBox"></search-box>
+        <my-footer></my-footer>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    
+    <script>
+        //vue
+        var app = new Vue({
+            el:"#app",
+            data:{
+                kv_SlickData: {
+                    currentBanner: 0,
+                    currentTitle:"本週精選設計師 - 慕澤設計-111",
+                    items: [
+                        {
+                            img:"img/slick-banner.jpg",
+                            img_m:"img/slick-banner-m.jpg",
+                            thumb:"img/thumb-1.jpg",
+                            title:"本週精選設計師 - 慕澤設計-111"
+                        },
+                        {
+                            img:"img/slick-banner.jpg",
+                            img_m:"img/slick-banner-m.jpg",
+                            thumb:"img/thumb-1.jpg",
+                            title:"本週精選設計師 - 慕澤設計-222"
+                        },
+                        {
+                            img:"img/slick-banner.jpg",
+                            img_m:"img/slick-banner-m.jpg",
+                            thumb:"img/thumb-1.jpg",
+                            title:"本週精選設計師 - 慕澤設計-333"
+                        }
+                    ],
+                    slickOptions: {
+                        slidesToShow: 1,
+                        arrows: false,
+                        autoplay: true,
+                        autoplaySpeed: 3000
+                    }
+                },
+                sec1_SlickData: {
+                    items: [
+                        {
+                            type: "室內設計公司",
+                            img: "img/interior-1.jpg",
+                            name: "一研設計制研所",
+                            link: ""
+                        },
+                        {
+                            type: "室內設計公司",
+                            img: "img/interior-2.jpg",
+                            name: "design-milk",
+                            link: ""
+                        },
+                        {
+                            type: "室內設計公司",
+                            img: "img/interior-3.jpg",
+                            name: "敘研設計 DSEN",
+                            link: ""
+                        },
+                        {
+                            type: "室內設計公司",
+                            img: "img/interior-4.jpg",
+                            name: "新澄設計",
+                            link: ""
+                        },
+                        {
+                            type: "室內設計公司",
+                            img: "img/interior-1.jpg",
+                            name: "一研設計制研所",
+                            link: ""
+                        },
+                        {
+                            type: "室內設計公司",
+                            img: "img/interior-2.jpg",
+                            name: "design-milk",
+                            link: ""
+                        },
+                        {
+                            type: "室內設計公司",
+                            img: "img/interior-3.jpg",
+                            name: "敘研設計 DSEN",
+                            link: ""
+                        },
+                        {
+                            type: "室內設計公司",
+                            img: "img/interior-4.jpg",
+                            name: "新澄設計",
+                            link: ""
+                        }
+                    ],
+                    slickOptions: {
+                        slidesToShow: 4,
+                        arrows: false,
+                        autoplay: true,
+                        autoplaySpeed: 3000,
+                        responsive: [
+                            {
+                                breakpoint: 992,
+                                settings: {
+                                    slidesToShow: 1.1,
+                                    arrows: false
+                                }
+                            }
+                        ]
+                    }
+                },
+                selectedTab:{
+                    design:'0',
+                    article:'0',
+                    collections:'0'
+                },
+                win_SlickData: {
+                    currentItem:0,
+                    items:[
+                        {
+                            img: "img/winner-slick-1.",
+                            title:"楊旻翰、羅士承-1",
+                            subtitle:"質感製作設計有限公司",
+                            discript:`
+                                <span>2019 義大利 A'Design Award</span>
+                                <span>2017 IDEA-TOPS艾特獎 最佳會所設計</span>
+                                <span class="red">2017 NAID AWARD 住宅B類優良作品獎</span>`,
+                            more:""
+                        },
+                        {
+                            img: "img/winner-slick-1.",
+                            title:"楊旻翰、羅士承-2",
+                            subtitle:"質感製作設計有限公司",
+                            discript:`
+                                <span>2019 義大利 A'Design Award</span>
+                                <span>2017 IDEA-TOPS艾特獎 最佳會所設計</span>
+                                <span class="red">2017 NAID AWARD 住宅B類優良作品獎</span>`,
+                            more:""
+                        },
+                        {
+                            img: "img/winner-slick-1.",
+                            title:"楊旻翰、羅士承-3",
+                            subtitle:"質感製作設計有限公司",
+                            discript:`
+                                <span>2019 義大利 A'Design Award</span>
+                                <span>2017 IDEA-TOPS艾特獎 最佳會所設計</span>
+                                <span class="red">2017 NAID AWARD 住宅B類優良作品獎</span>`,
+                            more:""
+                        },
+                        {
+                            img: "img/winner-slick-1.",
+                            title:"楊旻翰、羅士承-4",
+                            subtitle:"質感製作設計有限公司",
+                            discript:`
+                                <span>2019 義大利 A'Design Award</span>
+                                <span>2017 IDEA-TOPS艾特獎 最佳會所設計</span>
+                                <span class="red">2017 NAID AWARD 住宅B類優良作品獎</span>`,
+                            more:""
+                        },
+                        {
+                            img: "img/winner-slick-1.",
+                            title:"楊旻翰、羅士承-5",
+                            subtitle:"質感製作設計有限公司",
+                            discript:`
+                                <span>2019 義大利 A'Design Award</span>
+                                <span>2017 IDEA-TOPS艾特獎 最佳會所設計</span>
+                                <span class="red">2017 NAID AWARD 住宅B類優良作品獎</span>`,
+                            more:""
+                        },
+                        {
+                            img: "img/winner-slick-1.",
+                            title:"楊旻翰、羅士承-6",
+                            subtitle:"質感製作設計有限公司",
+                            discript:`
+                                <span>2019 義大利 A'Design Award</span>
+                                <span>2017 IDEA-TOPS艾特獎 最佳會所設計</span>
+                                <span class="red">2017 NAID AWARD 住宅B類優良作品獎</span>`,
+                            more:""
+                        },
+                        {
+                            img: "img/winner-slick-1.",
+                            title:"楊旻翰、羅士承-7",
+                            subtitle:"質感製作設計有限公司",
+                            discript:`
+                                <span>2019 義大利 A'Design Award</span>
+                                <span>2017 IDEA-TOPS艾特獎 最佳會所設計</span>
+                                <span class="red">2017 NAID AWARD 住宅B類優良作品獎</span>`,
+                            more:""
+                        },
+                        {
+                            img: "img/winner-slick-1.",
+                            title:"楊旻翰、羅士承-8",
+                            subtitle:"質感製作設計有限公司",
+                            discript:`
+                                <span>2019 義大利 A'Design Award</span>
+                                <span>2017 IDEA-TOPS艾特獎 最佳會所設計</span>
+                                <span class="red">2017 NAID AWARD 住宅B類優良作品獎</span>`,
+                            more:""
+                        }
+                    ],
+                    slickOptions: {
+                        slidesToShow: 1,
+                        arrows: false,
+                        autoplay: false,
+                        autoplaySpeed: 3000,
+                        responsive: [
+                            {
+                                breakpoint: 992,
+                                settings: {
+                                    slidesToShow: 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                sec3_SlickData: {
+                    slickOptions: {
+                        slidesToShow: 1,
+                        arrows: false,
+                        autoplay: true,
+                        autoplaySpeed: 3000,
+                        responsive: [
+                            {
+                                breakpoint: 992,
+                                settings: {
+                                    slidesToShow: 1,
+                                    arrow: false
+                                }
+                            }
+                        ]
+                    }
+                },
+                ad_SlickData:{
+                    slickOptions: {
+                        slidesToShow: 5,
+                        slidesToScroll: 5,
+                        arrows: false,
+                        autoplay: true,
+                        autoplaySpeed: 3000,
+                        responsive: [
+                            {
+                                breakpoint: 992,
+                                settings: {
+                                    slidesToShow: 1.2,
+                                    slidesToScroll:1,
+                                    arrow: false
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            methods: {
+                gotoItem(target,num) {
+                    var ref;
+                    if(target === "kv")  ref = $('.kv-slick');
+                    if(target === "winner")  ref = $('.win_slick');
+                    ref.slick('slickGoTo',num);
+                },
+                go_next(target) {
+                    var ref;
+                    if(target === "kv") ref = $('.kv-slick');
+                    if(target === "sec1") ref = $('.sec1slick');
+                    if(target === "winner")  ref = $('.win_slick');
+                    if(target === "sec3") ref = $('.sec3slick');
+                    ref.slick('slickNext');
+                },
+                go_prev(target) {
+                    var ref;
+                    if(target === "kv") ref = $('.kv-slick');
+                    if(target === "sec1") ref = $('.sec1slick');
+                    if(target === "winner")  ref = $('.win_slick');
+                    if(target === "sec3") ref = $('.sec3slick');
+                    ref.slick('slickPrev');
+                },
+                tabClick(val){
+                    var type = event.target.parentElement.parentElement.getAttribute('name');
+                    this.selectedTab[type] = val;
+                },
+                openSearch(){
+                    var searchbox = this.$refs.searchBox;
+                    searchbox.openSearch();
+                }
+            },
+        });
+    </script>
+
+    <script type="text/babel">
+        $(function(){
+            //KV-slick
+            var kv_setting = app.kv_SlickData.slickOptions;
+            $('.kv-slick').slick(kv_setting).on('afterChange',function(event, slick, currentSlide, nextSlide){
+                app.kv_SlickData.currentBanner = currentSlide;
+                app.kv_SlickData.currentTitle = app.kv_SlickData.items[currentSlide].title;
+            });
+
+            //sec1-slick
+            var sec1_setting = app.sec1_SlickData.slickOptions;
+            $('.sec1slick').slick(sec1_setting);
+
+            //win-slick
+            var win_setting = app.win_SlickData.slickOptions;
+            $('.win_slick').slick(win_setting);
+
+            //sec3-slick
+            var sec3_setting = app.sec3_SlickData.slickOptions;
+            $('.sec3slick').slick(sec3_setting);
+
+            //ad-slick
+            var ad_setting = app.ad_SlickData.slickOptions;
+            $('.ad-wrap').slick(ad_setting);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>創為人力資源</title>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="js/TweenMax.js"></script>
+    <link rel="icon" href="favicon.ico">
+    <style>
+    #app{
+        font-family: "微軟正黑體";
+    }
+    .row{
+        position: relative;
+    }
+    .logo{
+        top: 5%;
+        left: 4%;
+        width: 20%;
+        position:absolute;
+        z-index: 9999;
+    }
+    .slogn_title{
+        position: absolute;
+        top: 30%;
+        left: 5%;
+        width: 50%;
+        z-index: 99999;
+    }
+    .content{
+        background: rgba(24, 33, 81, 1);
+        background-size: 100%;
+        position: absolute;
+        padding: 5% 8% 0;
+        top: 70%;
+        width: 90%;
+        left: 5%;
+        color: #fff;
+        border-radius: 10px;
+        margin-bottom: 5%;
+        opacity: 0.9;
+        margin-top: 5%;
+
+    }
+    .content:before{
+        content: '';
+        display: block;
+        background: rgba(24, 33, 81, 1);
+        width: 80px;
+        height: 80px;
+        transform: rotate(45deg);
+        position: absolute;
+        z-index: -100;
+        top: -35px;
+        left: 20%;
+    }
+    .main_wrap{
+        padding-bottom: 5%;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+        margin-bottom: 5%;
+    }
+    .main_wrap .title{
+        color: rgb(255, 208, 0);
+        font-size: 40px;
+        display: block;
+        font-weight: bold;
+        line-height: 60px;
+        margin-bottom: 20px;
+    }
+    .main_wrap .date{
+        font-size: 25px;
+        color:rgb(255, 208, 0);
+    }
+    #set2,
+    #set3{
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+        padding-bottom: 30px;
+    }
+    h4{
+        background: rgb(255, 208, 0);
+        color: rgb(43, 41, 70);
+        padding: 5px 20px;
+        border-radius: 30px;
+        max-width: 150px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0 0 30px;
+        position: relative;
+    }
+    h4 > span{
+        position: absolute;
+        color: #fff;
+        width: auto;
+        display: block;
+        width: 150px;
+        font-size: 13px;
+        color: #fc0;
+        top: 10px;
+        right: -150px;
+    }
+    ul{
+        list-style: decimal;
+        padding: 0 0 0 20px;
+        line-height: 30px;
+        font-size: 16px;
+    }
+    .bot_text2,
+    .bot_text{
+        line-height: 30px;
+        width: 80%;
+        font-size: 16px;
+        margin-bottom: 60px;
+    }
+    .bot_text span{
+        display: block;
+    }
+    .group{
+        margin-bottom: 30px;
+        position: relative;
+    }
+    .g2 p{
+        width: 100%;
+        line-height: 30px;
+        font-size: 16px;
+    }
+    .highlight{
+        background: rgb(255, 208, 0);
+        color: black;
+        padding: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #2f3863;
+        text-align: center;
+        border-radius: 50px;
+        margin: 30px 0 0;
+    }
+    .bot-box{
+        background: rgb(255, 208, 0);
+        color: #000;
+        padding: 20px;
+        border-radius: 10px;
+        right: 0;
+        font-size: 15px;
+        overflow: hidden;
+        margin-bottom: 30px;
+    }
+    .bot-box small{
+        display: block;
+    }
+    @media screen and (max-width: 992px) {
+        .highlight{
+            border-radius: 0;
+            font-size: 14px;
+            letter-spacing: 0;
+            padding: 10px 5px;
+        }
+        .highlight span{
+            display:inline-block;
+            text-align: center;
+        }
+        .logo{
+            top: 1%;
+            left: 5%;
+            width: 100px;
+            position:absolute;
+            z-index: 9999;
+        }
+        .slogn_title{
+            position: absolute;
+            top: 6%;
+            left: 5%;
+            width: 50%;
+            z-index: 99999;
+        }
+        .main_bg{
+            position: relative;
+        }
+        .content{
+            position: relative;
+            margin-top: 4%;
+        }
+        .content:before{
+            width: 40px;
+            height: 40px;
+            transform: rotate(45deg);
+            position: absolute;
+            z-index: -100;
+            top: -20px;
+            left: 20%;
+        }
+        .main_wrap .title{
+            font-size: 30px;
+            line-height: 50px;
+            margin-bottom: 10px;
+        }
+        .main_wrap .date{
+            font-size: 18px;
+            color:rgb(255, 208, 0);
+        }
+        h4{
+            font-size: 18px;
+        }
+        h4 > span{
+            position: absolute;
+            color: #fff;
+            width: auto;
+            display: block;
+            width: 150px;
+            font-size: 13px;
+            color: #fc0;
+            top: 10px;
+            right:0;
+            display: none;
+        }
+        ul{
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .bot_text2,
+        .bot_text{
+            font-size: 14px;
+        }
+        .group{
+            margin-bottom: 40px;
+        }
+        .g2 p{
+            width: 100%;
+            line-height: 30px;
+            font-size: 14px;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        .main_wrap .title{
+            font-size: 15px;
+            line-height: 25px;
+            margin-bottom: 10px;
+        }
+        .main_wrap .date{
+            font-size: 13px;
+            color:rgb(255, 208, 0);
+        }
+        h4{
+            font-size: 15px;
+        }
+        ul{
+            font-size: 12px;
+            line-height: 25px;
+            margin-bottom: 20px;
+        }
+        .bot_text{
+            font-size: 12px;
+            line-height: 25px;
+        }
+        .group{
+            margin-bottom: 40px;
+        }
+        .g2 p{
+            width: 100%;
+            font-size: 12px;
+            line-height: 25px;
+        }
+        .qrcode{
+            text-align: center;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div class="logo"><img src="images/Group-246.png" class="w-100"/></div>
+                <div class="slogn_title"><img src="images/Group-251.png" class="w-100"/></div>
+                <div class="main_bg"><img src="images/Image-2.png" class="w-100"/></div>
+                <div class="content">
+                    <div class="group g1">
+                        <div id="set1" class="main_wrap">
+                            <span class="title">澳門知名娛樂集團<br>即將親自來台公開招聘 - VIP公關</span>
+                            <span class="date">【 2月28日~3月1日 台北招聘會 】</span>
+                            <div class="highlight">
+                                <span>【 無仲介費、無任何手續費 】</span>
+                                <span>【 創為人力用心服務 你職涯上的好朋友 】</span>
+                            </div>
+                        </div>
+                        <div class="bot_text">
+                            <span>報名創為人力所舉辦的招聘會，我們將免費指導包含</span>
+                            <span>求職準備、簡歷撰寫、穿著化妝、 面試技巧、應對談吐、職場禮儀..等</span>
+                        </div>
+                        <div id="set2" class="main_content">
+                            <h4>薪資福利</h4>
+                            <ul>
+                                <li>月薪資: 起薪約台幣六萬到八萬，另有每月分紅</li>
+                                <li>年假7天/年(未滿一年依比例給, 服務每多滿一年則多加一天)</li>
+                                <li>提供入職和離職機票</li>
+                                <li>提供勞工保險與醫療保險</li>
+                                <li>工作時數:8HR/天, 48HR/週</li>                                    
+                            </ul>
+                            <div class="bot_text2">
+                                <span>備註：福利制度不詳盡之處，以徵才企業官方資料為主。</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="set3" class="group g2">
+                        <h4>報名方式一<span> <<< 最快速的報名方式 </span></h4>
+                        <p>
+                            請直接透過以下連結下載報名履歷，並將檔案完成後e-mail寄送至<br>
+                            <a href="mailto:cindyden@trustwehr.com" style="color:#fff;">【 cindyden@trustwehr.com 】</a><br>
+                            我們將在收到您的履歷後盡速與您聯繫
+                        </p>
+                        <a href="https://drive.google.com/file/d/1HgMYW8-QF0Y0rgmBEuALZWoxnH9IaODX/view" class="btn btn-light">履歷下載網址</a>
+                    </div>
+                    <div id="set4" class="group g3">
+                        <h4>報名方式二</h4>
+                        <p>若是無法操作履歷下載者可選擇此報名方式</p>
+                        <a href="https://www.104.com.tw/job/?jobno=6gf5a&jobsource=" class="btn btn-light">104履歷投遞傳送門</a>
+                    </div>
+                    <div class="bot-box">
+                            <p>
+                                歡迎加入創為人力LINE@專頁，最即時的工作資訊立即LINE給你，最快速的回覆您的訊息 
+                                <small>✔ 當然是聊工作資訊啦XD ✔ 即時回答您的找工作相關問題。 ✔ 馬上加入跟我一對一聊天吧！</small>
+                            </p>
+                            <div class="line-it-button btn btn-success" data-lang="zh_Hant" data-type="friend" data-lineid="@geq1525c" style="display: none;"></div>
+ <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+$(window).bind('load',function(){
+    if($(window).width() > 991){
+        initAni();
+    }
+});
+
+function initAni(){
+    var intro = new TimelineMax(),
+        act1  = new TimelineMax({ paused: true }),
+        act2  = new TimelineMax({ paused: true }),
+        act3  = new TimelineMax({ paused: true });
+
+    intro
+        .from($('.main_bg'), 1, { opacity:0, x:-300 ,scale:1.5})
+        .from($('.logo'), 0.8, { opacity:0, ease: Sine.easeOut })
+        .from($('.slogn_title'), 0.4, { opacity:0, x:100, ease: Sine.easeOut })
+        .from($('.content'), 1, { opacity:0 })
+        .from($('.main_wrap .title'), 0.6, { opacity:0, ease: Sine.easeOut })
+        .from($('.main_wrap .date'), 0.6, { opacity:0, ease: Sine.easeOut })
+        .from($('.highlight'), 0.6, { opacity:0, ease: Sine.easeOut })
+        .from($('.bot_text'), 0.6, { opacity:0 });
+
+    act1
+        .from($('.main_content h4'), 0.6, { opacity:0,x:100, ease: Sine.easeOut })
+        .from($('.main_content ul'), 0.6, { opacity:0 })
+        .from($('.bot_text2'), 0.6, { opacity:0 });
+
+    act2
+        .from($('.group.g2 h4'), 0.6, { opacity:0,x:100, ease: Sine.easeOut })
+        .from($('.group.g2 p'), 0.6, { opacity:0 })
+        .from($('.group.g2 .btn'), 0.6, { opacity:0 });
+
+    act3
+        .from($('.group.g3 h4'), 0.6, { opacity:0,x:100, ease: Sine.easeOut })
+        .from($('.group.g3 p'), 0.6, { opacity:0 })
+        .from($('.group.g3 .btn'), 0.6, { opacity:0 })
+        .from($('#set2 .bot_text'), 0.6, { opacity:0 });
+
+    $(window).bind('load scroll', function () {
+        var sec1 = $('#set1').offset().top - 150,
+            sec2 = $('#set2').offset().top - 150,
+            sec3 = $('#set3').offset().top - 250,
+            sec4 = $('#set4').offset().top - 200;
+
+        if ($(this).scrollTop() > sec1 ) {
+            act1.play();
+        }
+        if ($(this).scrollTop() > sec2 ) {
+            act2.play();
+        }
+        if ($(this).scrollTop() > sec3 ) {
+            act3.play();
+        }
+        if ($(this).scrollTop() > sec4 ) {
+            act4.play();
+        }
+    });
+}
+</script>
+</html>

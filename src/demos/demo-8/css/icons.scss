@@ -1,0 +1,269 @@
+/*=================================*/
+/*==            icons            ==*/
+/*=================================*/
+
+// icon 基本設定
+.icon-default {
+    background-position: center;
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
+// icon facebook
+.icon-fb {
+    @extend .icon-default;
+    width: 19.5px;
+    height: 18px;
+    background: url(../img/icn/icon-fb.svg) no-repeat;
+    background-position: center;
+}
+
+// icon Line
+.icon-li {
+    @extend .icon-default;
+    width: 19.5px;
+    height: 18px;
+    background: url(../img/icn/icon-line.svg) no-repeat;
+    background-position: center;
+}
+
+// icon youtube
+.icon-yt {
+    @extend .icon-default;
+    width: 19.5px;
+    height: 18px;
+    background: url(../img/icn/icon-yt.svg) no-repeat;
+    background-position: center;
+}
+
+// icon instagram
+.icon-ig {
+    @extend .icon-default;
+    width: 19.5px;
+    height: 18px;
+    background: url(../img/icn/icon-ig.svg) no-repeat;
+    background-position: center;
+}
+
+// icon 地圖
+.icon-location {
+    @extend .icon-default;
+    width: 14px;
+    height: 14px;
+    background: url(../img/icn/icon-location.svg) no-repeat;
+    background-position: center;
+}
+
+// icon 電話
+.icon-phone {
+    @extend .icon-default;
+    width: 14px;
+    height: 14px;
+    background: url(../img/icn/icon-phone.svg) no-repeat;
+    background-position: center;
+}
+
+// icon 傳真
+.icon-fax {
+    @extend .icon-default;
+    width: 14px;
+    height: 14px;
+    background: url(../img/icn/icon-fax.svg) no-repeat;
+    background-position: center;
+}
+
+// icon 信箱
+.icon-mail {
+    @extend .icon-default;
+    width: 14px;
+    height: 14px;
+    background: url(../img/icn/icon-mail.svg) no-repeat;
+    background-position: center;
+}
+
+// icon 網址
+.icon-web {
+    @extend .icon-default;
+    width: 14px;
+    height: 14px;
+    background: url(../img/icn/icon-web.svg) no-repeat;
+    background-position: center;
+}
+
+// icon 月曆
+.icon-calender {
+    @extend .icon-default;
+    width: 14px;
+    height: 14px;
+    background: url(../img/icn/icon-calender.svg) no-repeat;
+    background-position: center;
+}
+
+// icon 作者
+.icon-writer {
+    @extend .icon-default;
+    width: 14px;
+    height: 14px;
+    background: url(../img/icn/icon-writer.svg) no-repeat;
+    background-position: center;
+}
+
+// other
+.icon-triangle{
+    width: 17px;
+    height: 18px;
+    background: url(../img/icn/icon-triangle.svg) no-repeat;
+    background-position: center;
+}
+
+// search
+.icon-search{
+    width: 16px;
+    height: 16px;
+    background: url(../img/icn/icon-search.svg) no-repeat;
+    background-position: center;
+}
+
+.icon-arrow-d{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    &:after{
+        content:'';
+        width: 60%;
+        height:1px;
+        border-bottom: 2px solid #fff;
+        transform: rotate(45deg);
+        top: 50%;
+        left: 0;
+        display: block;
+        position: absolute;
+    }
+    &:before{
+        content:'';
+        width: 60%;
+        height:1px;
+        border-bottom: 2px solid #fff;
+        transform: rotate(-45deg);
+        top: 50%;
+        right: 0;
+        position: absolute;
+        display: block;
+    }
+}
+
+.icon-arrow-u{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    &:after{
+        content:'';
+        width: 60%;
+        height:1px;
+        border-bottom: 2px solid #fff;
+        transform: rotate(-45deg);
+        top: 50%;
+        left: 0;
+        display: block;
+        position: absolute;
+    }
+    &:before{
+        content:'';
+        width: 60%;
+        height:1px;
+        border-bottom: 2px solid #fff;
+        transform: rotate(45deg);
+        top: 50%;
+        right: 0;
+        position: absolute;
+        display: block;
+    }
+}
+
+.icon-search-h{
+    width: 16px;
+    height: 16px;
+    background: url(../img/icn/icon-search-h.svg) no-repeat;
+    background-position: center;
+}
+
+.icon-triangle-w{
+    width: 17px;
+    height: 18px;
+    background: url(../img/icn/icon-triangle-w.svg) no-repeat;
+    background-position: center;
+}
+
+.icon-arrow-down{
+    width: 11px;
+    height: 5px;
+    position: relative;
+    display: flex;
+    &:after {
+        content: "";
+        width: 7px;
+        height: 2px;
+        background:$color_5;
+        display: block;
+        position: absolute;
+        transform: rotate(45deg);
+        top: 0;
+        left: 0;
+        opacity: 1;
+    }
+    &:before {
+        content: "";
+        width: 6px;
+        height: 2px;
+        background:$color_5;
+        display: block;
+        position: absolute;
+        transform: rotate(-45deg);
+        top: 0;
+        right: 0;
+        opacity: 1;
+    }
+}
+
+// icon facebook
+.icon-fb-sq {
+    @extend .icon-default;
+    width: 32px;
+    height: 32px;
+    background: url(../img/icn/icon-fb.svg) no-repeat;
+    background-position: center;
+    -webkit-filter:brightness(200);
+}
+
+// icon Line
+.icon-li-sq {
+    @extend .icon-default;
+    width: 32px;
+    height: 32px;
+    background: url(../img/icn/icon-line.svg) no-repeat;
+    background-position: center;
+    -webkit-filter:brightness(200);
+}
+
+// icon youtube
+.icon-yt-sq {
+    @extend .icon-default;
+    width: 32px;
+    height: 32px;
+    background: url(../img/icn/icon-yt.svg) no-repeat;
+    background-position: center;
+    -webkit-filter:brightness(200);
+}
+
+// icon instagram
+.icon-ig-sq {
+    @extend .icon-default;
+    width: 32px;
+    height: 32px;
+    background: url(../img/icn/icon-ig.svg) no-repeat;
+    background-position: center;
+    -webkit-filter:brightness(200);
+}

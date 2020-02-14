@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="17" viewBox="0 0 15 17">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2,.cls-4{fill:#555}.cls-3,.cls-4{stroke:none}
+        </style>
+    </defs>
+    <g id="Group_858" data-name="Group 858" transform="translate(2308 -2243)">
+        <g id="Group_856" data-name="Group 856" transform="translate(0 7)">
+            <g id="Polygon_7" class="cls-1" data-name="Polygon 7">
+                <path d="M3.75 0L7.5 4H0z" class="cls-3" transform="rotate(90 -2264.5 -28.5)"/>
+                <path d="M3.75 1.462L2.308 3h2.884L3.75 1.462M3.75 0L7.5 4H0l3.75-4z" class="cls-4" transform="rotate(90 -2264.5 -28.5)"/>
+            </g>
+            <path id="Path_321" d="M-2308.965 2251.216s.993-5 3.341-5h8.659v1.272h-8.659c-1.55 0-3.341 3.728-3.341 3.728z" class="cls-2" data-name="Path 321" transform="translate(.965 -7.216)"/>
+        </g>
+        <g id="Group_857" data-name="Group 857" transform="rotate(180 -2300.5 2248)">
+            <g id="Polygon_7-2" class="cls-1" data-name="Polygon 7">
+                <path d="M3.75 0L7.5 4H0z" class="cls-3" transform="rotate(90 -2264.5 -28.5)"/>
+                <path d="M3.75 1.462L2.308 3h2.884L3.75 1.462M3.75 0L7.5 4H0l3.75-4z" class="cls-4" transform="rotate(90 -2264.5 -28.5)"/>
+            </g>
+            <path id="Path_321-2" d="M-2308.965 2251.216s.993-5 3.341-5h8.659v1.272h-8.659c-1.55 0-3.341 3.728-3.341 3.728z" class="cls-2" data-name="Path 321" transform="translate(.965 -7.216)"/>
+        </g>
+    </g>
+</svg>

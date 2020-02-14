@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{fill:#aa7e56}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h13v13H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="icn_FAX" class="cls-2" data-name="icn/FAX">
+        <path id="icn_FAX-2" d="M6.5 13H2.846V8.419h7.308V13zm4.654-2.78V7.362H1.846v2.858H0V2.663h13v7.557zM11.1 4.66h.924v-.94H11.1zM6.5 1.684H2.846V0h7.308v1.684z" class="cls-3" data-name="icn/FAX"/>
+    </g>
+</svg>

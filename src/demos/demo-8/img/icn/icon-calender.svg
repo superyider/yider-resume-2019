@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{fill:#ccaf91}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h11v11H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="icn_calender" class="cls-2" data-name="icn/calender">
+        <path id="icn_calender-2" d="M-5987.426-2361.214v-9.654h1.8v1.178h2.685v-1.178h1.978v1.178h2.685v-1.178h1.854v9.654zm8.18-1.292h1.613v-1.367h-1.613zm-2.325 0h1.614v-1.367h-1.614zm-2.324 0h1.614v-1.367h-1.614zm-2.324 0h1.613v-1.367h-1.613zm6.973-2.161h1.613v-1.367h-1.613zm-2.325 0h1.614v-1.367h-1.614zm-2.324 0h1.614v-1.367h-1.614zm-2.324 0h1.613v-1.367h-1.613zm6.973-2.161h1.613v-1.366h-1.613zm-2.325 0h1.614v-1.366h-1.614zm-2.324 0h1.614v-1.366h-1.614zm-2.324 0h1.613v-1.366h-1.613zm5.863-3.445v-1.94h1.469v1.94zm-4.663 0v-1.94h1.469v1.94z" class="cls-3" data-name="icn/calender" transform="translate(5987.426 2372.214)"/>
+    </g>
+</svg>

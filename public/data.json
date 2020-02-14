@@ -1,0 +1,130 @@
+{
+    "about":{
+        "title":"資深網頁 / 插畫 / 視覺設計 / 網頁前端",
+        "content":"從事平面設計 5 年，並同時經營插畫角色與社群平台，因為對網頁設計與多媒體具有高度熱誠，於是透過自學網頁相關技術進而轉職網頁設計工作 8 年，並於工作期間持續吸收學習網頁前端相關技術，期望在未來有機會能在單位服務。"
+    },
+    "skill":{
+        "exptitle":"遊戲基地 資深網頁設計 / 2007.3 ~ 2015.6",
+        "expData":[
+            "遊戲基地改版以及日常維護",
+            "網站活動頁視覺設計與 RWD 切版",
+            "Facebook Canvas / Banner",
+            "遊戲基地 VI 設計"
+        ],
+        "sktitle":"skills",
+        "skillData":[
+            "Web Site (RWD) / Campaign Site (RWD)",
+            "Html5 / Scss / jQuery / Bootstrap",
+            "PHP / MySQL / vueJs / Git / Webpack",
+            "App User Interface",
+            "Facebook Canvas / Banner",
+            "Graphic / Logo",
+            "Flash ActionScript 3"
+        ]
+    },
+    "portfolio":{
+        
+        "webDatas":[
+            {
+                "title":"艾爾之光十週年紀念",
+                "content":"HTML / CSS / VueJs / GSAP",
+                "img":"datas/w-001.png",
+                "link":"datas/w-001/index.html"
+            },
+            {
+                "title":"艾爾之光角色介紹",
+                "content":"HTML / CSS / VueJs / GSAP",
+                "img":"datas/w-005.jpg",
+                "link":"datas/w-005/index.html"
+            },
+            {
+                "title":"楓之谷暑期活動",
+                "content":"HTML / CSS / JQuery / GSAP",
+                "img":"datas/w-002.png",
+                "link":"datas/w-002/index.html"
+            },
+            {
+                "title":"神域世界",
+                "content":"HTML / CSS / JQuery / GSAP",
+                "img":"datas/w-006.jpg",
+                "link":"datas/w-006/index.html"
+            },
+            {
+                "title":"魔力寶貝倒數活動",
+                "content":"HTML / CSS / FLASH",
+                "img":"datas/w-003.png",
+                "link":"datas/w-003/index.html"
+            },
+            {
+                "title":"遊戲基地新年拉霸活動",
+                "content":"HTML / CSS / FLASH",
+                "img":"datas/w-004.png",
+                "link":"datas/w-004/index.html"
+            },
+            {
+                "title":"AVON 新商品活動",
+                "content":"HTML / CSS / JQuery",
+                "img":"datas/w-007.jpg",
+                "link":"https://8yen.tw/works/avon/"
+            },
+            {
+                "title":"Citi 花旗企業公民首頁",
+                "content":"HTML / CSS / JQuery",
+                "img":"datas/w-008.jpg",
+                "link":"http://8yen.tw/works/citi/"
+            }
+        ],
+        "illDatas":[
+            {
+                "title":"角色插畫練習",
+                "content":"使用工具：IPad Pro / Procreate",
+                "img":"https://8yen.tw/apis/?getThumbsq&href=https://8yen.tw/resume/illus/il03.jpg&s=300",
+                "link":"https://8yen.tw/resume/illus/il03.jpg"
+            },
+            {
+                "title":"角色插畫練習",
+                "content":"使用工具：IPad Pro / Procreate",
+                "img":"https://8yen.tw/apis/?getThumbsq&href=https://8yen.tw/resume/illus/il04.jpg&s=300",
+                "link":"https://8yen.tw/resume/illus/il04.jpg"
+            },
+            {
+                "title":"康軒英語教材插畫",
+                "content":"使用工具：Corel Painter",
+                "img":"https://8yen.tw/apis/?getThumbsq&href=https://8yen.tw/resume/illus/il07.jpg&s=300",
+                "link":"https://8yen.tw/resume/illus/il07.jpg"
+            },
+            {
+                "title":"文學書配圖",
+                "content":"使用工具：Corel Painter",
+                "img":"https://8yen.tw/apis/?getThumbsq&href=https://8yen.tw/resume/illus/il23.jpg&s=300",
+                "link":"https://8yen.tw/resume/illus/il23.jpg"
+            }
+        ],
+        "ipDatas":[
+            {
+                "title":"台北三創2週年慶",
+                "content":"三創2週年角色聯名合作",
+                "img":"datas/i-001.png",
+                "link":"datas/i-001.png"
+            },
+            {
+                "title":"GLOBAL MALL 新年聯名合作",
+                "content":"全省 GLOBAL MALL 角色聯名合作",
+                "img":"datas/i-002.png",
+                "link":"datas/i-002.png"
+            },
+            {
+                "title":"台灣好行礁溪冬山河線合作",
+                "content":"8元哥Ｘ毛毛蟲台灣好行合作",
+                "img":"datas/i-003.png",
+                "link":"datas/i-003.png"
+            },
+            {
+                "title":"香港授權展",
+                "content":"香港授權展",
+                "img":"datas/i-004.png",
+                "link":"datas/i-004.png"
+            }
+        ]
+    }
+}

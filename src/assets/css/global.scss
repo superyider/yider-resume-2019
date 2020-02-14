@@ -1,0 +1,57 @@
+$color_main:rgba(255, 196, 0,1);
+$color_white:rgba(255, 255, 255,1);
+$color_dark:rgba(0,0,0,1);
+
+/*=====================================*/
+/*              config              */
+/*=====================================*/
+
+a,img{
+    outline: none;
+    border: none;
+}
+
+*:focus { outline: none; }
+
+/*=====================================*/
+/*              animation              */
+/*=====================================*/
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+//漸層
+@mixin gradient($deg, $color1, $color2, $color3, $percent) {
+    background: linear-gradient($deg, $color1, $color2, $color3 $percent);
+    background: -moz-linear-gradient($deg, $color1, $color2, $color3 $percent);
+    background: -webkit-linear-gradient($deg, $color1, $color1, $color3 $percent);
+    background: -o-linear-gradient($deg, $color1, $color1, $color3 $percent);
+}
+
+@mixin myblur($val){
+    filter: blur($val);
+    -webkit-filter: blur($val);
+    -moz-filter: blur($val);
+    -o-filter: blur($val);
+    -ms-filter: blur($val);
+}
+
+/*=====================================*/
+/*              btns                   */
+/*=====================================*/
+
+.more-btn{
+    border:1px solid #ccc;
+    background: #333;
+    color: #fff!important;
+    border-radius: 30px;
+    padding: 5px 20px;
+    cursor: pointer;
+}

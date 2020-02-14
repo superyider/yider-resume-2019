@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" viewBox="0 0 11 14">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{fill:#aa7e56}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h11v14H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="icn_location" class="cls-2" data-name="icn/location">
+        <path id="icn_location-2" d="M1923.236-528.922a5.491 5.491 0 0 0-5.5-5.482 5.491 5.491 0 0 0-5.5 5.482 5.442 5.442 0 0 0 1.046 3.208 35.313 35.313 0 0 0 4.458 5.307 35.278 35.278 0 0 0 4.458-5.307 5.441 5.441 0 0 0 1.038-3.208zm-5.5 2.411a2.415 2.415 0 0 1-2.418-2.411 2.415 2.415 0 0 1 2.418-2.411 2.415 2.415 0 0 1 2.418 2.411 2.415 2.415 0 0 1-2.418 2.411z" class="cls-3" data-name="icn/location" transform="translate(-1912.236 534.404)"/>
+    </g>
+</svg>

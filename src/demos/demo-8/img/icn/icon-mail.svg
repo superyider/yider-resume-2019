@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{clip-path:url(#clip-path)}.cls-3{fill:#aa7e56}
+        </style>
+        <clipPath id="clip-path">
+            <path d="M0 0h13v10H0z" class="cls-1"/>
+        </clipPath>
+    </defs>
+    <g id="icn_mail" class="cls-2" data-name="icn/mail">
+        <path id="icn_mail-2" d="M0 10V3.746l6.5 3.631L13 3.746V10zm0-7.344V0h13v2.656L6.5 6.288z" class="cls-3" data-name="icn/mail"/>
+    </g>
+</svg>
