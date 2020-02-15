@@ -81,7 +81,6 @@
                             :link="item.link"
                             ></item-card>
                         </div>
-                        <a class="more more-btn">more</a>
                     </div>
                     <!--插畫設計-->
                     <h4 class="mb-4">插畫設計</h4>
@@ -95,7 +94,6 @@
                             data-lity
                             ></item-card>
                         </div>
-                        <a class="more more-btn">more</a>
                     </div>
                     <!--IP經營-->
                     <h4 class="mb-4">IP經營</h4>
@@ -109,7 +107,6 @@
                             data-lity
                             ></item-card>
                         </div>
-                        <a class="more more-btn">more</a>
                     </div>
                 </div>
             </div>
@@ -196,14 +193,14 @@ export default {
         };
     },
     mounted(){
-        console.log(this.portfolioDatas)
+        //console.log(this.portfolioDatas)
     },
     methods: {
         handleSlick(currentSlick){
             this.kv.slickActive = currentSlick
         },
         submitFormData(){
-            console.log(this.formDatas);
+            //console.log(this.formDatas);
         }
     }
 };

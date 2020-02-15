@@ -19,10 +19,10 @@
             </transition>
             <!-- nav menu -->
             <ul v-show="!isMobile" :class="['nav',{ open: this.menuOpened === true }]">
-                <li :class="['menuHover',{ active:this.selectMenu === '#about' }]"><a href="#about" @click="handleScrollTo" >About</a></li>
-                <li :class="['menuHover',{ active:this.selectMenu === '#skill' }]"><a href="#skill" @click="handleScrollTo" >Experienenc</a></li>
-                <li :class="['menuHover',{ active:this.selectMenu === '#works' }]"><a href="#portfolio" @click="handleScrollTo" >Portfolio</a></li>
-                <li :class="['menuHover',{ active:this.selectMenu === '#contact' }]"><a href="#contact" @click="handleScrollTo" >Contact</a></li>
+                <li :class="['menuHover',{ active:this.selectMenu === '#about' }]"><a href="javascript:" data="#about" @click="handleScrollTo" >About</a></li>
+                <li :class="['menuHover',{ active:this.selectMenu === '#skill' }]"><a href="javascript:" data="#skill" @click="handleScrollTo" >Experienenc</a></li>
+                <li :class="['menuHover',{ active:this.selectMenu === '#works' }]"><a href="javascript:" data="#portfolio" @click="handleScrollTo" >Portfolio</a></li>
+                <li :class="['menuHover',{ active:this.selectMenu === '#contact' }]"><a href="javascript:" data="#contact" @click="handleScrollTo" >Contact</a></li>
             </ul>
         </div>
     </header>
@@ -275,7 +275,7 @@ export default {
         },
         //scrollto
         handleScrollTo(e){
-            const targetName = e.target.getAttribute('href');
+            const targetName = e.target.getAttribute('data');
             const scrollTo = scroller();
             this.selectMenu = targetName;
             document.querySelector( targetName ) ? scrollTo( targetName ):'';

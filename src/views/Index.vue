@@ -1,13 +1,4 @@
-<template>
-  <div id="app">
-    <router-view/>
-  </div>
-</template>
-
-<style lang="scss">
-
-</style>
-<!--script>
+<script>
 import axios from 'axios'
 import appHeader from "@/components/AppHeaderComp.vue";
 import { TweenMax, TimelineMax, gsap } from "gsap";
@@ -16,7 +7,7 @@ import { scroller } from "vue-scrollto/src/scrollTo";
 import home from "@/views/Home.vue";
 
 export default {
-    name: "App",
+    name: "Index",
     components: {
         appHeader,
         home
@@ -137,4 +128,4 @@ a{
     color: #fff;
     background: #333;
 }
-</style-->
+</style>
