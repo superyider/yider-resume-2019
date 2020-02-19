@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'lity/dist/lity.js'
 import 'lity/dist/lity.css'
+import './assets/js/canvasGame.js';
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)

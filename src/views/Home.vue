@@ -38,14 +38,18 @@
                     <h2 class="section-title col-12 text-center mb-5 p-0">
                         <span>Experienenc / Skill</span>
                     </h2>
-                    <h4 class="mb-4">{{ this.portfolioDatas.skill.exptitle }}</h4>
-                    <ul class="info border-bottom pb-3 mb-3">
-                        <li class="row no-gutters mb-2" 
-                        v-for="item in this.portfolioDatas.skill.expData" 
-                        :key="item.id">
-                            {{ item }}
-                        </li>
-                    </ul>
+                    <!--2007~2015-->
+                    <div v-for="item in this.portfolioDatas.skill.expDatas" :key="item.id">
+                        <h4 class="mb-4">{{ item.exptitle }}</h4>
+                        <ul class="info pb-3 mb-3">
+                            <li class="row no-gutters mb-2" 
+                            v-for="item in item.expData" 
+                            :key="item.id">
+                                {{ item }}
+                            </li>
+                        </ul>
+                    </div>
+                    <!--skill-->
                     <h4 class="mb-4">{{ this.portfolioDatas.skill.sktitle }}</h4>
                     <ul class="info">
                         <li class="row no-gutters mb-2" 

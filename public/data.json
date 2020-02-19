@@ -1,25 +1,34 @@
 {
     "about":{
         "title":"資深網頁 / 插畫 / 視覺設計 / 網頁前端",
-        "content":"從事平面設計 5 年，並同時經營插畫角色與社群平台，因為對網頁設計與多媒體具有高度熱誠，於是透過自學網頁相關技術進而轉職網頁設計工作 8 年，並於工作期間持續吸收學習網頁前端相關技術，期望在未來有機會能在單位服務。"
+        "content":"從事平面設計 5 年，因為對網頁設計與多媒體具有高度熱誠，於是透過自學網頁相關技術進而轉職網頁設計工作 8 年，為了接觸更多領域專案於 2016 年成為 Freelancer 同時經營插畫角色與社群平台，並於工作期間持續吸收學習網頁前端相關技術，期望這些日子的經歷與學習能在未來有機會能為需要的單位服務。"
     },
     "skill":{
-        "exptitle":"遊戲基地 資深網頁設計 / 2007.3 ~ 2015.6",
-        "expData":[
-            "遊戲基地改版以及日常維護",
-            "網站活動頁視覺設計與 RWD 切版",
-            "Facebook Canvas / Banner",
-            "遊戲基地 VI 設計"
+        "expDatas":[
+            {
+                "exptitle":"遊戲基地 資深網頁設計 / 2007.3 ~ 2015.6",
+                "expData":[
+                    "遊戲基地改版以及日常維護",
+                    "網站活動頁視覺設計與 RWD 切版",
+                    "Facebook Canvas / Banner",
+                    "遊戲基地 VI 設計"
+                ]
+            },
+            {
+                "exptitle":"Freelancer / 2015.6 ~ 2020",
+                "expData":[
+                    "各類網頁專案製作",
+                    "插畫角色設計＆親子手作教學"
+                ]
+            }
         ],
+        
         "sktitle":"skills",
         "skillData":[
-            "Web Site (RWD) / Campaign Site (RWD)",
-            "Html5 / Scss / jQuery / Bootstrap",
+            "Web Site (RWD) / Html5 / Scss / jQuery / Bootstrap",
             "PHP / MySQL / vueJs / Git / Webpack",
-            "App User Interface",
-            "Facebook Canvas / Banner",
-            "Graphic / Logo",
-            "Flash ActionScript 3"
+            "App User Interface / Facebook Canvas / Banner",
+            "Graphic / Logo / Flash ActionScript 3"
         ]
     },
     "portfolio":{

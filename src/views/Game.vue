@@ -1,5 +1,10 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+        <canvas id="game-box" width="500" height="500"></canvas>
 </template>
+<style lang="scss">
+.game {
+    canvas {
+        margin: 0 auto;
+    }
+}
+</style>
